@@ -2,11 +2,13 @@
 
 > Order your collection by a field
 
+![ng2-order-pipe in action](https://cloud.githubusercontent.com/assets/3748453/22164327/08764608-df57-11e6-9c90-075aeca26fd6.gif)
+
+
 ## Install
 
 ```
 npm install  ng2-order-pipe --save
-
 ```
 
 ## Usage
@@ -48,7 +50,7 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-  array: string[] = [{ name: 'John'} , { name: 'Mary' }, { name: 'Adam' }];
+  array: any[] = [{ name: 'John'} , { name: 'Mary' }, { name: 'Adam' }];
   order: string = 'name';
 }
 ```
