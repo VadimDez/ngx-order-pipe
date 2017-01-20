@@ -1,0 +1,31 @@
+$grey-color: #a7a7a7;
+
+thead th {
+  cursor: pointer;
+  margin-right: 15px;
+  margin-left: 15px;
+
+  span {
+    visibility: hidden;
+  }
+
+  &.active {
+    color: #000;
+
+    span {
+      visibility: visible;
+    }
+  }
+}
+
+.short-description {
+  color: $grey-color;
+  font-size: 18px;
+  border-left: solid 5px $grey-color;
+  padding-left: 10px;
+}
+
+.mdl-mini-footer {
+  padding-bottom: 16px;
+  padding-top: 16px;
+}

@@ -1,0 +1,78 @@
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--no-drawer-button">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <span class="mdl-layout-title">ng2-order-pipe</span>
+      <div class="mdl-layout-spacer"></div>
+    </div>
+  </header>
+
+  <main class="mdl-layout__content">
+    <div class="page-content">
+
+      <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--6-col mdl-cell--3-offset">
+          <h2>Angular2 order pipe</h2>
+          <p class="short-description">
+            Order your collection by a field
+          </p>
+
+          <p>
+            Press on the label to re-order table
+          </p>
+
+          <div class="mdl-grid mdl-grid--no-spacing">
+            <div class="mdl-cell mdl-cell--6-col">
+              <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+                <thead>
+                <tr>
+                  <th [class.active]="order === 'name'"
+                      (click)="setOrder('name')"
+                      class="mdl-data-table__cell--non-numeric"
+                  >
+                    Name <span>▼</span>
+                  </th>
+                  <th [class.active]="order === 'number'"
+                      (click)="setOrder('number')"
+                  >
+                    Phone number <span>▼</span>
+                  </th>
+                  <th [class.active]="order === 'age'" (click)="setOrder('age')">
+                    Age <span>▼</span>
+                  </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let row of collection | orderBy: order">
+                  <td class="mdl-data-table__cell--non-numeric">{{ row.name }}</td>
+                  <td>{{ row.number }}</td>
+                  <td>{{ row.age }}</td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="mdl-cell mdl-cell--6-col">
+              <p>
+                orderBy: "{{ order }}"
+              </p>
+              <p>
+                Collection: {{ collection | json }}
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="mdl-mini-footer">
+    <div class="mdl-mini-footer__left-section">
+      <div class="mdl-logo">ng2-order-pipe</div>
+      <ul class="mdl-mini-footer__link-list">
+        <li><a href="https://github.com/VadimDez/ng2-order-pipe">Github</a></li>
+        <li><a href="https://github.com/VadimDez">Vadym Yatsyuk</a></li>
+      </ul>
+    </div>
+  </footer>
+</div>

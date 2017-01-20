@@ -1,0 +1,26 @@
+{
+  "name": "ng2-order-pipe",
+  "version": "0.1.0",
+  "description": "Angular2 order pipe",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VadimDez/ng2-order-pipe.git"
+  },
+  "keywords": [
+    "order",
+    "pipe",
+    "angular2",
+    "sort",
+    "filter"
+  ],
+  "author": "Vadym Yatsyuk <vadym.yatsyuk@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/VadimDez/ng2-order-pipe/issues"
+  },
+  "homepage": "https://github.com/VadimDez/ng2-order-pipe#readme"
+}
