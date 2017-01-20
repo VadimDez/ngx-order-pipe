@@ -2,8 +2,7 @@
 
 > Order your collection by a field
 
-![ng2-order-pipe in action](https://cloud.githubusercontent.com/assets/3748453/22164327/08764608-df57-11e6-9c90-075aeca26fd6.gif)
-
+<img src="https://cloud.githubusercontent.com/assets/3748453/22164327/08764608-df57-11e6-9c90-075aeca26fd6.gif" width="300">
 
 ## Install
 
