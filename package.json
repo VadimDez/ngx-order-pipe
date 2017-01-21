@@ -1,6 +1,6 @@
 {
   "name": "ng2-order-pipe",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Angular2 order pipe, order collection by a field",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
