@@ -12,6 +12,20 @@ npm install  ng2-order-pipe --save
 
 ## Usage
 
+##### In HTML template
+
+```html
+{{ collection | orderBy: expression : reverse }}
+```
+
+### Arguments
+
+| Param | Type | Details |
+| --- | --- | --- |
+| collection | `array` | The collection to sort |
+| expression  | `string` | The key to compare |
+| reverse *(optional)* | `boolean`| Reverse sorting order |
+
 Import `Ng2FOrderPipeModule` to your module
 
 ```ts

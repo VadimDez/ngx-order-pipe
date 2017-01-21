@@ -55,5 +55,20 @@ describe('Ng2OrderPipe', () => {
     const arraySorted = [{ string: 'aaa' }, { string: 'abc' }, { string: 'b' }];
 
     expect(pipe.transform(array, 'string')).toEqual(arraySorted);
-  })
+  });
+
+
+  it('should not revert ordered array', () => {
+    const array = [{ value: 10 }, { value: 1 }, { value: 5 }];
+    const arraySorted = [{ value: 1 }, { value: 5 }, { value: 10 }];
+
+    expect(pipe.transform(array, 'value', false)).toEqual(arraySorted);
+  });
+
+  it('should revert ordered array', () => {
+    const array = [{ value: 10 }, { value: 1 }, { value: 5 }];
+    const arraySortedAndReverse = [{ value: 10 }, { value: 5 }, { value: 1 }];
+
+    expect(pipe.transform(array, 'value', true)).toEqual(arraySortedAndReverse);
+  });
 });

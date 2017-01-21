@@ -5,10 +5,15 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class Ng2OrderPipe implements PipeTransform {
 
-  transform(value: any, args?: any): any {
-    return value.sort((a: any, b: any): number => {
-      return a[args] > b[args] ? 1 : -1;
+  transform(value: any[], expression?: any, reverse?: boolean): any {
+    let array: any[] = value.sort((a: any, b: any): number => {
+      return a[expression] > b[expression] ? 1 : -1;
     });
-  }
 
+    if (reverse) {
+      return array.reverse();
+    }
+
+    return array;
+  }
 }
