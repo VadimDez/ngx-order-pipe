@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   order: string = 'name';
+  reverse: boolean = false;
   collection: any[] = [
     {
       name: 'John',
@@ -32,6 +33,10 @@ export class AppComponent {
   ];
 
   setOrder(value: string) {
+    if (this.order === value) {
+      this.reverse = !this.reverse;
+    }
+
     this.order = value;
   }
 }

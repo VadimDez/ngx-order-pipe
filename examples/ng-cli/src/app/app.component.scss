@@ -29,3 +29,14 @@ thead th {
   padding-bottom: 16px;
   padding-top: 16px;
 }
+
+h5 {
+  font-size: 16px;
+  color: rgba(0,0,0,.54);
+  font-weight: 500;
+  text-transform: uppercase;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}

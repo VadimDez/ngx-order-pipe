@@ -29,20 +29,20 @@
                       (click)="setOrder('name')"
                       class="mdl-data-table__cell--non-numeric"
                   >
-                    Name <span>▼</span>
+                    Name <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
                   </th>
                   <th [class.active]="order === 'number'"
                       (click)="setOrder('number')"
                   >
-                    Phone number <span>▼</span>
+                    Phone number <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
                   </th>
                   <th [class.active]="order === 'age'" (click)="setOrder('age')">
-                    Age <span>▼</span>
+                    Age <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
                   </th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr *ngFor="let row of collection | orderBy: order">
+                <tr *ngFor="let row of collection | orderBy: order:reverse">
                   <td class="mdl-data-table__cell--non-numeric">{{ row.name }}</td>
                   <td>{{ row.number }}</td>
                   <td>{{ row.age }}</td>
@@ -51,11 +51,13 @@
               </table>
             </div>
             <div class="mdl-cell mdl-cell--6-col">
+              <h5>Pipe</h5>
               <p>
-                orderBy: "{{ order }}"
+                orderBy: "{{ order }}":{{ reverse}}
               </p>
+              <h5>Collection</h5>
               <p>
-                Collection: {{ collection | json }}
+                {{ collection | json }}
               </p>
             </div>
           </div>
