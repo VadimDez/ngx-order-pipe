@@ -1,5 +1,9 @@
 $grey-color: #a7a7a7;
 
+.mdl-data-table {
+  width: 95%;
+}
+
 thead th {
   cursor: pointer;
   margin-right: 15px;
@@ -26,7 +30,7 @@ thead th {
 }
 
 .mdl-mini-footer {
-  padding-bottom: 16px;
+  padding-bottom: 22px;
   padding-top: 16px;
 }
 
@@ -36,7 +40,9 @@ h5 {
   font-weight: 500;
   text-transform: uppercase;
 
-  &:first-child {
-    margin-top: 0;
+  @media (min-width: 480px) {
+    &:first-child {
+      margin-top: 0;
+    }
   }
 }
