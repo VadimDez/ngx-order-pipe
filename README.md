@@ -4,6 +4,9 @@
 
 <img src="https://cloud.githubusercontent.com/assets/3748453/22164327/08764608-df57-11e6-9c90-075aeca26fd6.gif" width="300">
 
+### Demo page
+[https://vadimdez.github.io/ng2-order-pipe/](https://vadimdez.github.io/ng2-order-pipe/)
+
 ## Install
 
 ```
