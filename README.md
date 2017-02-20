@@ -36,10 +36,10 @@ import { NgModule } from '@angular/core';
 import { BrowserModule  } from '@angular/platform-browser';
 import { AppComponent } from './app';
 
-import { Ng2FOrderPipeModule } from 'ng2-order-pipe';
+import { Ng2FOrderModule } from 'ng2-order-pipe';
 
 @NgModule({
-  imports: [BrowserModule, Ng2FOrderPipeModule],
+  imports: [BrowserModule, Ng2FOrderModule],
   declarations: [AppComponent],
   bootstrap: [AppComponent]
 })
