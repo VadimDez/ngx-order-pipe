@@ -71,4 +71,9 @@ describe('Ng2OrderPipe', () => {
 
     expect(pipe.transform(array, 'value', true)).toEqual(arraySortedAndReverse);
   });
+
+  it('should work with not defined as well', () => {
+    let array;
+    expect(pipe.transform(array, 'value')).toEqual(array);
+  });
 });
