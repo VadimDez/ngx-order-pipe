@@ -29,7 +29,7 @@ npm install  ng2-order-pipe --save
 | expression  | `string` | The key to compare |
 | reverse *(optional)* | `boolean`| Reverse sorting order |
 
-Import `Ng2FOrderPipeModule` to your module
+Import `Ng2FOrderModule` to your module
 
 ```ts
 import { NgModule } from '@angular/core';
