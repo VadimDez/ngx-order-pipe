@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/VadimDez/ng2-order-pipe#readme",
   "peerDependencies": {
-    "@angular/core": "^2.2.3"
+    "@angular/core": ">=2.0.0"
   },
   "dependencies": {
     "typings": "^2.0.0"
