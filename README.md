@@ -29,17 +29,17 @@ npm install  ng2-order-pipe --save
 | expression  | `string` | The key to compare |
 | reverse *(optional)* | `boolean`| Reverse sorting order |
 
-Import `Ng2FOrderPipeModule` to your module
+Import `Ng2OrderModule` to your module
 
 ```ts
 import { NgModule } from '@angular/core';
 import { BrowserModule  } from '@angular/platform-browser';
 import { AppComponent } from './app';
 
-import { Ng2FOrderModule } from 'ng2-order-pipe';
+import { Ng2OrderModule } from 'ng2-order-pipe';
 
 @NgModule({
-  imports: [BrowserModule, Ng2FOrderModule],
+  imports: [BrowserModule, Ng2OrderModule],
   declarations: [AppComponent],
   bootstrap: [AppComponent]
 })
