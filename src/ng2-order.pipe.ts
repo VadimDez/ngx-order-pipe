@@ -5,12 +5,17 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class Ng2OrderPipe implements PipeTransform {
 
-  transform(value: any[], expression?: any, reverse?: boolean): any {
+  transform(value: any[], expression?: any, reverse?: boolean, option?: string): any {
+
     if (!value) {
       return value;
     }
 
     let array: any[] = value.sort((a: any, b: any): number => {
+      if (option && option.localeCompare('case-insensitive') == 0 &&
+        this.isString(a[expression]) && this.isString(b[expression])) {
+        return a[expression].localeCompare(b[expression]);
+      }
       return a[expression] > b[expression] ? 1 : -1;
     });
 
@@ -19,5 +24,9 @@ export class Ng2OrderPipe implements PipeTransform {
     }
 
     return array;
+  }
+
+  isString(value: any) {
+    return typeof value === 'string' || value instanceof String;
   }
 }
