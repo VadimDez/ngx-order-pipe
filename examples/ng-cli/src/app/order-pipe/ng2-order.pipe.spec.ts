@@ -76,4 +76,18 @@ describe('Ng2OrderPipe', () => {
     let array;
     expect(pipe.transform(array, 'value')).toEqual(array);
   });
+
+  it('should array without expression', () => {
+    const array = [3, 2, 1];
+    const sortedArray = [1, 2, 3];
+
+    expect(pipe.transform(array)).toEqual(sortedArray);
+  });
+
+  it('should chars array without expression', () => {
+    const array = ['b', 'c', 'a'];
+    const sortedArray = ['a', 'b', 'c'];
+
+    expect(pipe.transform(array)).toEqual(sortedArray);
+  });
 });
