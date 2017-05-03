@@ -11,6 +11,10 @@ export class Ng2OrderPipe implements PipeTransform {
     }
 
     let array: any[] = value.sort((a: any, b: any): number => {
+      if (!expression) {
+        return a > b ? 1 : -1;
+      }
+
       return a[expression] > b[expression] ? 1 : -1;
     });
 
