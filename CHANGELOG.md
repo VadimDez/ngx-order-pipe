@@ -1,3 +1,15 @@
+### 0.1.4
+[[#11](https://github.com/VadimDez/ng2-order-pipe/issues/11)] - Sort array without expression
+```html
+<div *ngFor="let i of [3, 2, 1] | orderBy">{{ i }}</div>
+```
+Result:
+```html
+<div>1</div>
+<div>2</div>
+<div>3</div>
+```
+
 ### 0.1.3
 Angular 4
 
