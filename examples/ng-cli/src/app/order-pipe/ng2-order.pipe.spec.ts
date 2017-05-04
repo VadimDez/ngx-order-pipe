@@ -90,4 +90,15 @@ describe('Ng2OrderPipe', () => {
 
     expect(pipe.transform(array)).toEqual(sortedArray);
   });
+
+  it('should ordered nested array', () => {
+    const array = [{ values: [{ value: 10 }, { value: 0 }]}, { values: [{ value: 1 }, { value: 2 }] }, { values: [{ value: 0 }, { value: -1 }, { value: 1 }] }];
+    const arraySortedAndReverse = [
+      { values: [{ value: 0 }, { value: 10 }]},
+      { values: [{ value: 1 }, { value: 2 }] },
+      { values: [{ value: -1 }, { value: 0 }, { value: 1 }] }
+    ];
+
+    expect(pipe.transform(array, 'values', true)).toEqual(arraySortedAndReverse);
+  });
 });
