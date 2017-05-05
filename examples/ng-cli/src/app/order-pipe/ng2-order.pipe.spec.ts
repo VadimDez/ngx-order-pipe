@@ -92,7 +92,11 @@ describe('Ng2OrderPipe', () => {
   });
 
   it('should ordered nested array', () => {
-    const array = [{ values: [{ value: 10 }, { value: 0 }]}, { values: [{ value: 1 }, { value: 2 }] }, { values: [{ value: 0 }, { value: -1 }, { value: 1 }] }];
+    const array = [
+      { values: [{ value: 10 }, { value: 0 }] },
+      { values: [{ value: 1 }, { value: 2 }] },
+      { values: [{ value: 0 }, { value: -1 }, { value: 1 }] }
+    ];
     const arraySortedAndReverse = [
       { values: [{ value: 0 }, { value: 10 }]},
       { values: [{ value: 1 }, { value: 2 }] },
