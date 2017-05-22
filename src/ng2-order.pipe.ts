@@ -12,7 +12,7 @@ export class Ng2OrderPipe implements PipeTransform {
     }
 
     let array: any[] = value.sort((a: any, b: any): number => {
-      if (option && option.localeCompare('case-insensitive') == 0 &&
+      if (option && option.toLowerCase() === 'case-insensitive' &&
         this.isString(a[expression]) && this.isString(b[expression])) {
         return a[expression].localeCompare(b[expression]);
       }
