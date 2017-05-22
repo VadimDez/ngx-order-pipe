@@ -76,4 +76,33 @@ describe('Ng2OrderPipe', () => {
     let array;
     expect(pipe.transform(array, 'value')).toEqual(array);
   });
+
+  it('should array without expression', () => {
+    const array = [3, 2, 1];
+    const sortedArray = [1, 2, 3];
+
+    expect(pipe.transform(array)).toEqual(sortedArray);
+  });
+
+  it('should chars array without expression', () => {
+    const array = ['b', 'c', 'a'];
+    const sortedArray = ['a', 'b', 'c'];
+
+    expect(pipe.transform(array)).toEqual(sortedArray);
+  });
+
+  it('should ordered nested array', () => {
+    const array = [
+      { values: [{ value: 10 }, { value: 0 }] },
+      { values: [{ value: 1 }, { value: 2 }] },
+      { values: [{ value: 0 }, { value: -1 }, { value: 1 }] }
+    ];
+    const arraySortedAndReverse = [
+      { values: [{ value: 0 }, { value: 10 }]},
+      { values: [{ value: 1 }, { value: 2 }] },
+      { values: [{ value: -1 }, { value: 0 }, { value: 1 }] }
+    ];
+
+    expect(pipe.transform(array, 'values', true)).toEqual(arraySortedAndReverse);
+  });
 });
