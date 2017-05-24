@@ -91,14 +91,34 @@ describe('Ng2OrderPipe', () => {
     expect(pipe.transform(array)).toEqual(sortedArray);
   });
 
-  it('should ordered nested array', () => {
-    const array = [{ values: [{ value: 10 }, { value: 0 }]}, { values: [{ value: 1 }, { value: 2 }] }, { values: [{ value: 0 }, { value: -1 }, { value: 1 }] }];
+
+  it('should ordered by array', () => {
+    const array = [
+      { values: [10, 0] },
+      { values: [1, 2] },
+      { values: [0, -1, 1] }
+    ];
     const arraySortedAndReverse = [
-      { values: [{ value: 0 }, { value: 10 }]},
-      { values: [{ value: 1 }, { value: 2 }] },
-      { values: [{ value: -1 }, { value: 0 }, { value: 1 }] }
+      { values: [0, -1, 1] },
+      { values: [1, 2] },
+      { values: [10, 0] }
     ];
 
-    expect(pipe.transform(array, 'values', true)).toEqual(arraySortedAndReverse);
+    expect(pipe.transform(array, 'values')).toEqual(arraySortedAndReverse);
   });
+
+  // it('should ordered nested array', () => {
+  //   const array = [
+  //     { values: [{ value: 10 }, { value: 0 }] },
+  //     { values: [{ value: 1 }, { value: 2 }] },
+  //     { values: [{ value: 0 }, { value: -1 }, { value: 1 }] }
+  //   ];
+  //   const arraySortedAndReverse = [
+  //     { values: [{ value: 0 }, { value: 10 }]},
+  //     { values: [{ value: 1 }, { value: 2 }] },
+  //     { values: [{ value: -1 }, { value: 0 }, { value: 1 }] }
+  //   ];
+  //
+  //   expect(pipe.transform(array, 'values')).toEqual(arraySortedAndReverse);
+  // });
 });
