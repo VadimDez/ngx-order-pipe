@@ -91,7 +91,6 @@ describe('Ng2OrderPipe', () => {
     expect(pipe.transform(array)).toEqual(sortedArray);
   });
 
-
   it('should ordered by array', () => {
     const array = [
       { values: [10, 0] },
