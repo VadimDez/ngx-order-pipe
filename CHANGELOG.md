@@ -1,3 +1,16 @@
+### 0.1.5
+[[#10](https://github.com/VadimDez/ng2-order-pipe/issues/10)] - Deep properties support
+
+Example
+
+```html
+<div>{{ { prop: { list: [3, 2, 1] } } | orderBy: 'prop.list' | json }}</div>
+```
+Result
+```html
+<div>{ prop: { list: [1, 2, 3] } }</div>
+```
+
 ### 0.1.4
 [[#11](https://github.com/VadimDez/ng2-order-pipe/issues/11)] - Sort array without expression
 ```html

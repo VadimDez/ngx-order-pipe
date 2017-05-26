@@ -25,8 +25,8 @@ npm install  ng2-order-pipe --save
 
 | Param | Type | Details |
 | --- | --- | --- |
-| collection | `array` | The collection to sort |
-| expression  | `string` | The key to compare |
+| collection | `array` or `object` | The collection or object to sort |
+| expression  | `string` | The key to determinate order |
 | reverse *(optional)* | `boolean`| Reverse sorting order |
 
 Import `Ng2OrderModule` to your module

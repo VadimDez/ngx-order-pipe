@@ -90,4 +90,75 @@ describe('Ng2OrderPipe', () => {
 
     expect(pipe.transform(array)).toEqual(sortedArray);
   });
+
+  it('should ordered by array', () => {
+    const array = [
+      { values: [10, 0] },
+      { values: [1, 2] },
+      { values: [0, -1, 1] }
+    ];
+    const arraySorted = [
+      { values: [0, -1, 1] },
+      { values: [1, 2] },
+      { values: [10, 0] }
+    ];
+
+    expect(pipe.transform(array, 'values')).toEqual(arraySorted);
+  });
+
+  it('should ordered nested elements', () => {
+    const object = {
+      b: {
+        c: [2, 1, 3],
+        d: ['h', 'ch'],
+        e: [{}, { f: 'g' }],
+        f: 'i'
+      }
+    };
+    const sortedObject = {
+      b: {
+        c: [1, 2, 3],
+        d: ['h', 'ch'],
+        e: [{}, { f: 'g' }],
+        f: 'i'
+      }
+    };
+
+    expect(pipe.transform(object, 'b.c')).toEqual(sortedObject);
+    expect(pipe.transform(object, 'b.e[1].f')).toEqual(object);
+    expect(pipe.transform(object, 'b.e[2].f')).toEqual(object);
+  });
+
+  it('should not throw error on ordering "undefined" deep element', () => {
+    const object = {
+      b: {
+        e: [{}, { f: 'g' }],
+      }
+    };
+
+    expect(pipe.transform(object, 'b.e[2].f')).toEqual(object);
+  });
+
+  it('should sort deep elements', () => {
+    const object = {
+      lists: {
+        users: [
+          { id: 3 },
+          { id: 2 },
+          { id: 1 }
+        ]
+      }
+    };
+    const objectSorted = {
+      lists: {
+        users: [
+          { id: 1 },
+          { id: 2 },
+          { id: 3 }
+        ]
+      }
+    };
+
+    expect(pipe.transform(object, 'lists.users.id')).toEqual(objectSorted);
+  });
 });
