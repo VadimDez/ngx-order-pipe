@@ -71,6 +71,17 @@ export class AppComponent {
 }
 ```
 
+### Deep sorting
+Use comma separated path for deep properties when passing object.
+```html
+<div>{{ { prop: { list: [3, 2, 1] } } | orderBy: 'prop.list' | json }}</div>
+```
+Result:
+```html
+<div>{ prop: { list: [1, 2, 3] } }</div>
+```
+
+
 ## License
 
 [MIT](https://tldrlegal.com/license/mit-license) © [Vadym Yatsyuk](https://github.com/vadimdez)
