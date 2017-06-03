@@ -1,16 +1,16 @@
-# Angular2 Order Pipe [![Build Status](https://travis-ci.org/VadimDez/ng2-order-pipe.svg?branch=master)](https://travis-ci.org/VadimDez/ng2-order-pipe)
+# Angular 4 Order Pipe [![Build Status](https://travis-ci.org/VadimDez/ng2-order-pipe.svg?branch=master)](https://travis-ci.org/VadimDez/ng2-order-pipe)
 
 > Order your collection by a field
 
 <img src="https://cloud.githubusercontent.com/assets/3748453/22164327/08764608-df57-11e6-9c90-075aeca26fd6.gif" width="300">
 
 ### Demo page
-[https://vadimdez.github.io/ng2-order-pipe/](https://vadimdez.github.io/ng2-order-pipe/)
+[https://vadimdez.github.io/ngx-order-pipe/](https://vadimdez.github.io/ngx-order-pipe/)
 
 ## Install
 
 ```
-npm install  ng2-order-pipe --save
+npm install  ngx-order-pipe --save
 ```
 
 ## Usage
@@ -29,7 +29,7 @@ npm install  ng2-order-pipe --save
 | expression  | `string` | The key to determinate order |
 | reverse *(optional)* | `boolean`| Reverse sorting order |
 
-Import `Ng2OrderModule` to your module
+Import `OrderModule` to your module
 
 ```ts
 import { NgModule } from '@angular/core';
@@ -39,7 +39,7 @@ import { AppComponent } from './app';
 import { Ng2OrderModule } from 'ng2-order-pipe';
 
 @NgModule({
-  imports: [BrowserModule, Ng2OrderModule],
+  imports: [BrowserModule, OrderModule],
   declarations: [AppComponent],
   bootstrap: [AppComponent]
 })
