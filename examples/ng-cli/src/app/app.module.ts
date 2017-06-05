@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { Ng2OrderModule } from './order-pipe/ng2-order.module';
+import { OrderModule } from './order-pipe/ngx-order.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +14,7 @@ import { Ng2OrderModule } from './order-pipe/ng2-order.module';
     BrowserModule,
     FormsModule,
     HttpModule,
-    Ng2OrderModule
+    OrderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
