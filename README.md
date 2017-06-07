@@ -1,4 +1,4 @@
-# Angular 4 Order Pipe [![Build Status](https://travis-ci.org/VadimDez/ng2-order-pipe.svg?branch=master)](https://travis-ci.org/VadimDez/ng2-order-pipe)
+# Angular 4 Order Pipe [![Build Status](https://travis-ci.org/VadimDez/ngx-order-pipe.svg?branch=master)](https://travis-ci.org/VadimDez/ngx-order-pipe)
 
 > Order your collection by a field
 
