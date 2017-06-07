@@ -1,14 +1,13 @@
 /* tslint:disable:no-unused-variable */
 
-import { TestBed, async } from '@angular/core/testing';
-import { Ng2OrderPipe } from './ng2-order.pipe';
+import { OrderPipe } from './ngx-order.pipe';
 
 describe('Ng2OrderPipe', () => {
-  let pipe: Ng2OrderPipe;
+  let pipe: OrderPipe;
 
   beforeEach(() => {
-    pipe = new Ng2OrderPipe();
-  })
+    pipe = new OrderPipe();
+  });
 
   it('create an instance', () => {
     expect(pipe).toBeTruthy();

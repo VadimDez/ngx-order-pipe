@@ -1,3 +1,6 @@
+### 1.0.0
+[[#15](https://github.com/VadimDez/ngx-order-pipe/issues/15)] - Change name to `ngx-order-pipe`
+
 ### 0.1.5
 [[#10](https://github.com/VadimDez/ng2-order-pipe/issues/10)] - Deep properties support
 

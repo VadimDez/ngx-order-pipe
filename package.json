@@ -1,7 +1,7 @@
 {
-  "name": "ng2-order-pipe",
-  "version": "0.1.5",
-  "description": "Angular2 order pipe, order collection by a field",
+  "name": "ngx-order-pipe",
+  "version": "1.0.0",
+  "description": "Angular order pipe, order collection by a field",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "files": [
@@ -13,10 +13,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/VadimDez/ng2-order-pipe.git"
+    "url": "git+https://github.com/VadimDez/ngx-order-pipe.git"
   },
   "keywords": [
     "angular2",
+    "angular4",
     "order",
     "pipe",
     "sort",
@@ -25,9 +26,9 @@
   "author": "Vadym Yatsyuk <vadym.yatsyuk@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/VadimDez/ng2-order-pipe/issues"
+    "url": "https://github.com/VadimDez/ngx-order-pipe/issues"
   },
-  "homepage": "https://github.com/VadimDez/ng2-order-pipe#readme",
+  "homepage": "https://github.com/VadimDez/ngx-order-pipe#readme",
   "peerDependencies": {
     "@angular/core": ">=2.0.0"
   },

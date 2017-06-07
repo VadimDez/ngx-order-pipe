@@ -3,7 +3,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 @Pipe({
   name: 'orderBy'
 })
-export class Ng2OrderPipe implements PipeTransform {
+export class OrderPipe implements PipeTransform {
 
   transform(value: any | any[], expression?: any, reverse?: boolean): any {
     if (!value) {
@@ -57,14 +57,14 @@ export class Ng2OrderPipe implements PipeTransform {
    * @returns {any[]}
    */
   private transformObject(value: any | any[], expression?: any, reverse?: boolean): any {
-    let parsedExpression = Ng2OrderPipe.parseExpression(expression);
+    let parsedExpression = OrderPipe.parseExpression(expression);
     let lastPredicate = parsedExpression.pop();
-    let oldValue = Ng2OrderPipe.getValue(value, parsedExpression);
+    let oldValue = OrderPipe.getValue(value, parsedExpression);
 
     if (!(oldValue instanceof Array)) {
       parsedExpression.push(lastPredicate);
       lastPredicate = null;
-      oldValue = Ng2OrderPipe.getValue(value, parsedExpression);
+      oldValue = OrderPipe.getValue(value, parsedExpression);
     }
 
     if (!oldValue) {
@@ -72,7 +72,7 @@ export class Ng2OrderPipe implements PipeTransform {
     }
 
     const newValue = this.transform(oldValue, lastPredicate, reverse);
-    Ng2OrderPipe.setValue(value, newValue, parsedExpression);
+    OrderPipe.setValue(value, newValue, parsedExpression);
     return value;
   }
 
