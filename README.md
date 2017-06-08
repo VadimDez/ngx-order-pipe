@@ -36,7 +36,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule  } from '@angular/platform-browser';
 import { AppComponent } from './app';
 
-import { Ng2OrderModule } from 'ng2-order-pipe';
+import { OrderModule } from 'ngx-order-pipe';
 
 @NgModule({
   imports: [BrowserModule, OrderModule],
