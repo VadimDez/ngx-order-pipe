@@ -1,15 +1,16 @@
 {
   "name": "ngx-order-pipe",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Angular order pipe, order collection by a field",
-  "main": "dist/index.js",
+  "main": "dist/bundles/ngx-order-pipe.js",
+  "module": "dist/index.js",
   "typings": "dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "ngc -p tsconfig.json"
+    "build": "rimraf dist && tsc -p tsconfig-esm.json && mkdir ./dist/bundles && rollup -c rollup.config.js dist/index.js > dist/bundles/ngx-order-pipe.umd.js && ngc -p tsconfig.json"
   },
   "repository": {
     "type": "git",
@@ -32,15 +33,12 @@
   "peerDependencies": {
     "@angular/core": ">=2.0.0"
   },
-  "dependencies": {
-    "typings": "^2.0.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@angular/common": "^2.4.4",
     "@angular/compiler": "^2.4.4",
     "@angular/compiler-cli": "^2.4.4",
     "@angular/core": "^2.4.4",
-    "@types/core-js": "^0.9.35",
     "@types/jasmine": "^2.5.41",
     "@types/node": "^7.0.0",
     "@types/phantom": "^3.2.0",
@@ -48,6 +46,9 @@
     "@types/selenium-webdriver": "^2.53.39",
     "@types/systemjs": "^0.19.33",
     "protractor": "^5.0.0",
+    "rollup": "^0.43.0",
+    "rollup-plugin-commonjs": "^8.0.2",
+    "rollup-plugin-node-resolve": "^3.0.0",
     "rxjs": "^5.0.3",
     "typescript": "^2.1.5",
     "zone.js": "^0.7.6"
