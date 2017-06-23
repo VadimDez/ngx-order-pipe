@@ -15,6 +15,8 @@ npm install  ngx-order-pipe --save
 
 ## Usage
 
+In case you're using `systemjs` - see configuration [here](https://github.com/VadimDez/ngx-order-pipe/blob/master/SYSTEMJS.md).
+
 ##### In HTML template
 
 ```html
