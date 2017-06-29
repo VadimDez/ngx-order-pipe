@@ -160,4 +160,22 @@ describe('Ng2OrderPipe', () => {
 
     expect(pipe.transform(object, 'lists.users.id')).toEqual(objectSorted);
   });
+
+  it('should sort array by deep prop', () => {
+    const arr = [
+      { customer: { name: 'test' }},
+      { customer: { name: 'b' }},
+      { customer: { name: 'a' }},
+      { customer: { name: 'c' }}
+    ];
+
+    const res = [
+      { customer: { name: 'a' }},
+      { customer: { name: 'b' }},
+      { customer: { name: 'c' }},
+      { customer: { name: 'test' }}
+    ];
+
+    expect(pipe.transform(arr, 'customer.name')).toEqual(res);
+  });
 });
