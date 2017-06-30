@@ -32,12 +32,22 @@ export class OrderPipe implements PipeTransform {
    * @returns {any[]}
    */
   private sortArray(value: any[], expression?: any, reverse?: boolean): any[] {
+    const isDeepLink = expression && expression.indexOf('.') !== -1;
+
+    if (isDeepLink) {
+      expression = OrderPipe.parseExpression(expression);
+    }
+
     let array: any[] = value.sort((a: any, b: any): number => {
       if (!expression) {
         return a > b ? 1 : -1;
       }
 
-      return a[expression] > b[expression] ? 1 : -1;
+      if (!isDeepLink) {
+        return a[expression] > b[expression] ? 1 : -1;
+      }
+
+      return OrderPipe.getValue(a, expression) > OrderPipe.getValue(b, expression) ? 1 : -1;
     });
 
     if (reverse) {

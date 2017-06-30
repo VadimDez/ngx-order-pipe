@@ -177,5 +177,23 @@ describe('Ng2OrderPipe', () => {
     ];
 
     expect(pipe.transform(arr, 'customer.name')).toEqual(res);
+
+    const array = [
+      { customer: { number: 25 }},
+      { customer: { number: 5 }},
+      { customer: { number: 0 }},
+      { customer: { number: 15 }},
+      { customer: { number: 1 }}
+    ];
+
+    const result = [
+      { customer: { number: 0 }},
+      { customer: { number: 1 }},
+      { customer: { number: 5 }},
+      { customer: { number: 15 }},
+      { customer: { number: 25 }}
+    ];
+
+    expect(pipe.transform(array, 'customer.number')).toEqual(result);
   });
 });

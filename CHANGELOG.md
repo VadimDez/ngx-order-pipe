@@ -1,3 +1,6 @@
+### 1.0.2
+[[#21](https://github.com/VadimDez/ngx-order-pipe/issues/21)] - Can not sort by embedded object value
+
 ### 1.0.1
 [[#19](https://github.com/VadimDez/ngx-order-pipe/issues/19)] - Create UMD bundle
 
