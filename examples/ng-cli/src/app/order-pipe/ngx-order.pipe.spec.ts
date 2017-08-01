@@ -2,7 +2,7 @@
 
 import { OrderPipe } from './ngx-order.pipe';
 
-describe('Ng2OrderPipe', () => {
+describe('OrderPipe', () => {
   let pipe: OrderPipe;
 
   beforeEach(() => {
@@ -195,5 +195,21 @@ describe('Ng2OrderPipe', () => {
     ];
 
     expect(pipe.transform(array, 'customer.number')).toEqual(result);
+  });
+
+  it('should sort by multiple fields', () => {
+    const array = [
+      { name: 'qwe', age: 1 },
+      { name: 'asd', age: 3 },
+      { name: 'asd', age: 2 },
+    ];
+
+    const result = [
+      { name: 'asd', age: 2 },
+      { name: 'asd', age: 3 },
+      { name: 'qwe', age: 1 },
+    ];
+
+    expect(pipe.transform(pipe.transform(array, 'name'), 'age')).toEqual(result);
   });
 });
