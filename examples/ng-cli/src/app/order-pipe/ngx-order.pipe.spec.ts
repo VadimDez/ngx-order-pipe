@@ -210,6 +210,6 @@ describe('OrderPipe', () => {
       { name: 'qwe', age: 1 },
     ];
 
-    expect(pipe.transform(pipe.transform(array, 'name'), 'age')).toEqual(result);
+    expect(pipe.transform(array, 'name,age')).toEqual(result);
   });
 });
