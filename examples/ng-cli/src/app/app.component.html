@@ -25,27 +25,34 @@
               <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
                 <thead>
                 <tr>
-                  <th [class.active]="order === 'name'"
-                      (click)="setOrder('name')"
+                  <th [class.active]="order === 'id'"
+                      (click)="setOrder('id')"
+                      class="mdl-data-table__cell--non-numeric"
+                  >
+                    ID <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+                  </th>
+                  <th [class.active]="order === 'info.name'"
+                      (click)="setOrder('info.name')"
                       class="mdl-data-table__cell--non-numeric"
                   >
                     Name <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
                   </th>
-                  <th [class.active]="order === 'number'"
-                      (click)="setOrder('number')"
+                  <th [class.active]="order === 'info.number'"
+                      (click)="setOrder('info.number')"
                   >
                     Phone number <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
                   </th>
-                  <th [class.active]="order === 'age'" (click)="setOrder('age')">
+                  <th [class.active]="order === 'info.age'" (click)="setOrder('info.age')">
                     Age <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
                   </th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr *ngFor="let row of collection | orderBy: order:reverse">
-                  <td class="mdl-data-table__cell--non-numeric">{{ row.name }}</td>
-                  <td>{{ row.number }}</td>
-                  <td>{{ row.age }}</td>
+                <tr *ngFor="let row of collection | orderBy: order:reverse:'case-insensitive'">
+                  <td>{{ row.id }}</td>
+                  <td class="mdl-data-table__cell--non-numeric">{{ row.info.name }}</td>
+                  <td>{{ row.info.number }}</td>
+                  <td>{{ row.info.age }}</td>
                 </tr>
                 </tbody>
               </table>

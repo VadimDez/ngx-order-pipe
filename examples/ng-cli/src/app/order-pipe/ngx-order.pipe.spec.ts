@@ -56,6 +56,12 @@ describe('OrderPipe', () => {
     expect(pipe.transform(array, 'string')).toEqual(arraySorted);
   });
 
+  it('should order case-insensitively strings too', () => {
+    const array = [{ string: 'Abc' }, { string: 'aaa' }, { string: 'b' }];
+    const arraySorted = [{ string: 'aaa' }, { string: 'Abc' }, { string: 'b' }];
+
+    expect(pipe.transform(array, 'string', false, 'case-insensitive')).toEqual(arraySorted);
+  });
 
   it('should not revert ordered array', () => {
     const array = [{ value: 10 }, { value: 1 }, { value: 5 }];
@@ -196,6 +202,26 @@ describe('OrderPipe', () => {
 
     expect(pipe.transform(array, 'customer.number')).toEqual(result);
   });
+
+  it('should sort case-insensitively array by deep prop', () => {
+    const arr = [
+      { customer: { name: 'test' }},
+      { customer: { name: 'B' }},
+      { customer: { name: 'a' }},
+      { customer: { name: 'c' }}
+    ];
+
+    const res = [
+      { customer: { name: 'a' }},
+      { customer: { name: 'B' }},
+      { customer: { name: 'c' }},
+      { customer: { name: 'test' }}
+    ];
+
+    expect(pipe.transform(arr, 'customer.name', false, 'case-insensitive')).toEqual(res);
+
+  });
+
 
   it('should sort by multiple fields', () => {
     const array = [
