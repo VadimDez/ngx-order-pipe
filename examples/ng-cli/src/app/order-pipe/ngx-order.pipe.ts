@@ -10,9 +10,7 @@ export class OrderPipe implements PipeTransform {
       return value;
     }
 
-    const isArray = value instanceof Array;
-
-    if (isArray) {
+    if (Array.isArray(value)) {
       return this.sortArray(value, expression, reverse);
     }
 
@@ -71,7 +69,7 @@ export class OrderPipe implements PipeTransform {
     let lastPredicate = parsedExpression.pop();
     let oldValue = OrderPipe.getValue(value, parsedExpression);
 
-    if (!(oldValue instanceof Array)) {
+    if (!Array.isArray(oldValue)) {
       parsedExpression.push(lastPredicate);
       lastPredicate = null;
       oldValue = OrderPipe.getValue(value, parsedExpression);
