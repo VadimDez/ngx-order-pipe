@@ -41,8 +41,12 @@ export class OrderPipe implements PipeTransform {
         return a > b ? 1 : -1;
       }
 
-      if (!isDeepLink) {
-        return a[expression] > b[expression] ? 1 : -1;
+      if (!isDeepLink && expression) {
+        if (a && b) {
+          return a[expression] > b[expression] ? 1 : -1;
+        } else {
+          return a > b ? 1 : -1;
+        }
       }
 
       return OrderPipe.getValue(a, expression) > OrderPipe.getValue(b, expression) ? 1 : -1;
