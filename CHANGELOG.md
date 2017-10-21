@@ -1,3 +1,8 @@
+# Changelog
+
+### 1.0.3
+[[#28](https://github.com/VadimDez/ngx-order-pipe/pull/28)] - Fix when a or b might be null (e.g. Async items)
+
 ### 1.0.2
 [[#21](https://github.com/VadimDez/ngx-order-pipe/issues/21)] - Can not sort by embedded object value
 
