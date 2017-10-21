@@ -10,9 +10,7 @@ export class OrderPipe implements PipeTransform {
       return value;
     }
 
-    const isArray = value instanceof Array;
-
-    if (isArray) {
+    if (Array.isArray(value)) {
       return this.sortArray(value, expression, reverse);
     }
 
@@ -44,11 +42,11 @@ export class OrderPipe implements PipeTransform {
       }
 
       if (!isDeepLink && expression) {
-          if (a && b) {
-              return a[expression] > b[expression] ? 1 : -1;
-          } else {
-              return a > b ? 1 : -1;
-          }
+        if (a && b) {
+          return a[expression] > b[expression] ? 1 : -1;
+        } else {
+          return a > b ? 1 : -1;
+        }
       }
 
       return OrderPipe.getValue(a, expression) > OrderPipe.getValue(b, expression) ? 1 : -1;
@@ -75,7 +73,7 @@ export class OrderPipe implements PipeTransform {
     let lastPredicate = parsedExpression.pop();
     let oldValue = OrderPipe.getValue(value, parsedExpression);
 
-    if (!(oldValue instanceof Array)) {
+    if (!Array.isArray(oldValue)) {
       parsedExpression.push(lastPredicate);
       lastPredicate = null;
       oldValue = OrderPipe.getValue(value, parsedExpression);
