@@ -5,17 +5,19 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class OrderPipe implements PipeTransform {
 
-  transform(value: any | any[], expression?: any, reverse?: boolean): any {
+  transform(value: any | any[], expression?: any, reverse?: boolean, option?: string): any {
     if (!value) {
       return value;
     }
-
+    
+    const isCaseInsensitive = option && option.toLowerCase() === 'case-insensitive';
+    
     if (Array.isArray(value)) {
-      return this.sortArray(value, expression, reverse);
+      return this.sortArray(value, expression, reverse, isCaseInsensitive);
     }
-
+    
     if (typeof value === 'object') {
-      return this.transformObject(value, expression, reverse);
+      return this.transformObject(value, expression, reverse, isCaseInsensitive);
     }
 
     return value;
@@ -29,24 +31,38 @@ export class OrderPipe implements PipeTransform {
    * @param reverse
    * @returns {any[]}
    */
-  private sortArray(value: any[], expression?: any, reverse?: boolean): any[] {
+  private sortArray(value: any[], expression?: any, reverse?: boolean, isCaseInsensitive?: boolean): any[] {
     const isDeepLink = expression && expression.indexOf('.') !== -1;
-
     if (isDeepLink) {
       expression = OrderPipe.parseExpression(expression);
     }
 
     let array: any[] = value.sort((a: any, b: any): number => {
       if (!expression) {
+        if (isCaseInsensitive) {
+          return this.caseInsensitiveSort(a, b);
+        }
         return a > b ? 1 : -1;
       }
 
       if (!isDeepLink && expression) {
+        if (isCaseInsensitive) {
+          if (a && b) {
+            return this.caseInsensitiveSort(a[expression], b[expression]);
+          } else {
+            return this.caseInsensitiveSort(a, b);
+          }
+        }
+        
         if (a && b) {
           return a[expression] > b[expression] ? 1 : -1;
         } else {
           return a > b ? 1 : -1;
         }
+      }
+
+      if (isCaseInsensitive) {
+        return this.caseInsensitiveSort(OrderPipe.getValue(a, expression), OrderPipe.getValue(b, expression));
       }
 
       return OrderPipe.getValue(a, expression) > OrderPipe.getValue(b, expression) ? 1 : -1;
@@ -68,7 +84,8 @@ export class OrderPipe implements PipeTransform {
    * @param reverse
    * @returns {any[]}
    */
-  private transformObject(value: any | any[], expression?: any, reverse?: boolean): any {
+  private transformObject(value: any | any[], expression?: any, reverse?: boolean, isCaseInsensitive?: boolean): any {
+
     let parsedExpression = OrderPipe.parseExpression(expression);
     let lastPredicate = parsedExpression.pop();
     let oldValue = OrderPipe.getValue(value, parsedExpression);
@@ -83,7 +100,10 @@ export class OrderPipe implements PipeTransform {
       return value;
     }
 
-    const newValue = this.transform(oldValue, lastPredicate, reverse);
+    const newValue = isCaseInsensitive ?
+                      this.transform(oldValue, lastPredicate, reverse, 'case-insensitive')
+                      : this.transform(oldValue, lastPredicate, reverse);
+
     OrderPipe.setValue(value, newValue, parsedExpression);
     return value;
   }
@@ -133,4 +153,27 @@ export class OrderPipe implements PipeTransform {
 
     object[expression[i]] = value;
   }
+
+  /**
+   * Check if a value is a string
+   *
+   * @param value
+   */
+  private isString(value: any) {
+    return typeof value === 'string' || value instanceof String;
+  }
+
+  /**
+   * Sorts values ignoring the case
+   *
+   * @param a
+   * @param b
+   */
+  private caseInsensitiveSort(a: any, b: any) {
+    if (this.isString(a) && this.isString(b)) {
+      return a.localeCompare(b);
+    }
+    return a > b ? 1 : -1;
+  }
+
 }
