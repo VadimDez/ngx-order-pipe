@@ -222,20 +222,19 @@ describe('OrderPipe', () => {
 
   });
 
-
-  it('should sort by multiple fields', () => {
-    const array = [
-      { name: 'qwe', age: 1 },
-      { name: 'asd', age: 3 },
-      { name: 'asd', age: 2 },
-    ];
-
-    const result = [
-      { name: 'asd', age: 2 },
-      { name: 'asd', age: 3 },
-      { name: 'qwe', age: 1 },
-    ];
-
-    expect(pipe.transform(array, 'name,age')).toEqual(result);
-  });
+  // it('should sort by multiple fields', () => {
+  //   const array = [
+  //     { name: 'qwe', age: 1 },
+  //     { name: 'asd', age: 3 },
+  //     { name: 'asd', age: 2 },
+  //   ];
+  //
+  //   const result = [
+  //     { name: 'asd', age: 2 },
+  //     { name: 'asd', age: 3 },
+  //     { name: 'qwe', age: 1 },
+  //   ];
+  //
+  //   expect(pipe.transform(array, 'name,age')).toEqual(result);
+  // });
 });

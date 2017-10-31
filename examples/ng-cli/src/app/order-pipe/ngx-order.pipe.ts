@@ -9,11 +9,13 @@ export class OrderPipe implements PipeTransform {
     if (!value) {
       return value;
     }
+    
     const isCaseInsensitive = option && option.toLowerCase() === 'case-insensitive';
-    const isArray = value instanceof Array;
-    if (isArray) {
+    
+    if (Array.isArray(value)) {
       return this.sortArray(value, expression, reverse, isCaseInsensitive);
     }
+    
     if (typeof value === 'object') {
       return this.transformObject(value, expression, reverse, isCaseInsensitive);
     }
@@ -43,11 +45,20 @@ export class OrderPipe implements PipeTransform {
         return a > b ? 1 : -1;
       }
 
-      if (!isDeepLink) {
+      if (!isDeepLink && expression) {
         if (isCaseInsensitive) {
-          return this.caseInsensitiveSort(a[expression], b[expression]);
+          if (a && b) {
+            return this.caseInsensitiveSort(a[expression], b[expression]);
+          } else {
+            return this.caseInsensitiveSort(a, b);
+          }
         }
-        return a[expression] > b[expression] ? 1 : -1;
+        
+        if (a && b) {
+          return a[expression] > b[expression] ? 1 : -1;
+        } else {
+          return a > b ? 1 : -1;
+        }
       }
 
       if (isCaseInsensitive) {
@@ -79,7 +90,7 @@ export class OrderPipe implements PipeTransform {
     let lastPredicate = parsedExpression.pop();
     let oldValue = OrderPipe.getValue(value, parsedExpression);
 
-    if (!(oldValue instanceof Array)) {
+    if (!Array.isArray(oldValue)) {
       parsedExpression.push(lastPredicate);
       lastPredicate = null;
       oldValue = OrderPipe.getValue(value, parsedExpression);
