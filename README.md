@@ -20,7 +20,7 @@ In case you're using `systemjs` - see configuration [here](https://github.com/Va
 ##### In HTML template
 
 ```html
-{{ collection | orderBy: expression : reverse }}
+{{ collection | orderBy: expression : reverse : caseInsensitive }}
 ```
 
 ### Arguments
@@ -30,6 +30,7 @@ In case you're using `systemjs` - see configuration [here](https://github.com/Va
 | collection | `array` or `object` | The collection or object to sort |
 | expression  | `string` | The key to determinate order |
 | reverse *(optional)* | `boolean`| Reverse sorting order |
+| caseInsensitive *(optional)* | `boolean`| Case insensitive compare for sorting |
 
 Import `OrderModule` to your module
 
