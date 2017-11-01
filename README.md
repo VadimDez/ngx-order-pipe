@@ -20,16 +20,17 @@ In case you're using `systemjs` - see configuration [here](https://github.com/Va
 ##### In HTML template
 
 ```html
-{{ collection | orderBy: expression : reverse }}
+{{ collection | orderBy: expression : reverse : caseInsensitive }}
 ```
 
 ### Arguments
 
-| Param | Type | Details |
-| --- | --- | --- |
-| collection | `array` or `object` | The collection or object to sort |
-| expression  | `string` | The key to determinate order |
-| reverse *(optional)* | `boolean`| Reverse sorting order |
+| Param | Type | Default | Details |
+| --- | --- | --- | --- |
+| collection | `array` or `object` | | The collection or object to sort |
+| expression  | `string` | | The key to determinate order |
+| reverse *(optional)* | `boolean`| false | Reverse sorting order |
+| caseInsensitive *(optional)* | `boolean`| false | Case insensitive compare for sorting |
 
 Import `OrderModule` to your module
 
@@ -85,5 +86,4 @@ Result:
 
 
 ## License
-
 [MIT](https://tldrlegal.com/license/mit-license) © [Vadym Yatsyuk](https://github.com/vadimdez)

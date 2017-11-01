@@ -2,7 +2,7 @@
 
 import { OrderPipe } from './ngx-order.pipe';
 
-describe('Ng2OrderPipe', () => {
+describe('OrderPipe', () => {
   let pipe: OrderPipe;
 
   beforeEach(() => {
@@ -56,6 +56,12 @@ describe('Ng2OrderPipe', () => {
     expect(pipe.transform(array, 'string')).toEqual(arraySorted);
   });
 
+  it('should order case-insensitively strings too', () => {
+    const array = [{ string: 'Abc' }, { string: 'aaa' }, { string: 'b' }];
+    const arraySorted = [{ string: 'aaa' }, { string: 'Abc' }, { string: 'b' }];
+
+    expect(pipe.transform(array, 'string', false, true)).toEqual(arraySorted);
+  });
 
   it('should not revert ordered array', () => {
     const array = [{ value: 10 }, { value: 1 }, { value: 5 }];
@@ -196,4 +202,38 @@ describe('Ng2OrderPipe', () => {
 
     expect(pipe.transform(array, 'customer.number')).toEqual(result);
   });
+
+  it('should sort case-insensitively array by deep prop', () => {
+    const arr = [
+      { customer: { name: 'test' }},
+      { customer: { name: 'B' }},
+      { customer: { name: 'a' }},
+      { customer: { name: 'c' }}
+    ];
+
+    const res = [
+      { customer: { name: 'a' }},
+      { customer: { name: 'B' }},
+      { customer: { name: 'c' }},
+      { customer: { name: 'test' }}
+    ];
+
+    expect(pipe.transform(arr, 'customer.name', false, true)).toEqual(res);
+  });
+
+  // it('should sort by multiple fields', () => {
+  //   const array = [
+  //     { name: 'qwe', age: 1 },
+  //     { name: 'asd', age: 3 },
+  //     { name: 'asd', age: 2 },
+  //   ];
+  //
+  //   const result = [
+  //     { name: 'asd', age: 2 },
+  //     { name: 'asd', age: 3 },
+  //     { name: 'qwe', age: 1 },
+  //   ];
+  //
+  //   expect(pipe.transform(array, 'name,age')).toEqual(result);
+  // });
 });

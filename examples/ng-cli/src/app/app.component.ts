@@ -10,25 +10,40 @@ export class AppComponent {
   reverse: boolean = false;
   collection: any[] = [
     {
-      name: 'John',
-      number: '555-1212',
-      age: 10
-    },{
-      name: 'Mary',
-      number: '555-9876',
-      age: 19
-    },{
-      name: 'Mike',
-      number: '555-4321',
-      age: 21
-    },{
-      name: 'Julie',
-      number: '555-8765',
-      age: 29
-    },{
-      name: 'Adam',
-      number: '555-5678',
-      age: 35
+      id: 1,
+      info: {
+        name: 'john',
+        number: '555-1212',
+        age: 10
+      }
+    }, {
+      id: 5,
+      info: {
+        name: 'Mary',
+        number: '555-9876',
+        age: 19
+      }
+    }, {
+      id: 2,
+      info: {
+        name: 'Mike',
+        number: '555-4321',
+        age: 21
+      }
+    }, {
+      id: 3,
+      info: {
+        name: 'Julie',
+        number: '555-8765',
+        age: 29
+      }
+    }, {
+      id: 4,
+      info: {
+        name: 'Adam',
+        number: '555-5678',
+        age: 35
+      }
     },
   ];
 
