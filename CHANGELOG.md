@@ -1,8 +1,8 @@
 # Changelog
 
 ### 1.0.4
-[[#26](https://github.com/VadimDez/ngx-order-pipe/issues/26)] - Feature request to switch it to case-insensitive
-[[#27](https://github.com/VadimDez/ngx-order-pipe/pull/27)] - Adding support for case insensitive ordering
+* [[#26](https://github.com/VadimDez/ngx-order-pipe/issues/26)] - Feature request to switch it to case-insensitive
+* [[#27](https://github.com/VadimDez/ngx-order-pipe/pull/27)] - Adding support for case insensitive ordering
 
 ### 1.0.3
 [[#28](https://github.com/VadimDez/ngx-order-pipe/pull/28)] - Fix when a or b might be null (e.g. Async items)
