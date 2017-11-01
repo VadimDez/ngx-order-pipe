@@ -60,7 +60,7 @@ describe('OrderPipe', () => {
     const array = [{ string: 'Abc' }, { string: 'aaa' }, { string: 'b' }];
     const arraySorted = [{ string: 'aaa' }, { string: 'Abc' }, { string: 'b' }];
 
-    expect(pipe.transform(array, 'string', false, 'case-insensitive')).toEqual(arraySorted);
+    expect(pipe.transform(array, 'string', false, true)).toEqual(arraySorted);
   });
 
   it('should not revert ordered array', () => {
@@ -218,8 +218,7 @@ describe('OrderPipe', () => {
       { customer: { name: 'test' }}
     ];
 
-    expect(pipe.transform(arr, 'customer.name', false, 'case-insensitive')).toEqual(res);
-
+    expect(pipe.transform(arr, 'customer.name', false, true)).toEqual(res);
   });
 
   // it('should sort by multiple fields', () => {
