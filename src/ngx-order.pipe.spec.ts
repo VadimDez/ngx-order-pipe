@@ -2,7 +2,7 @@
 
 import { OrderPipe } from './ngx-order.pipe';
 
-describe('Ng2OrderPipe', () => {
+describe('OrderPipe', () => {
   let pipe: OrderPipe;
 
   beforeEach(() => {
@@ -60,7 +60,7 @@ describe('Ng2OrderPipe', () => {
     const array = [{ string: 'Abc' }, { string: 'aaa' }, { string: 'b' }];
     const arraySorted = [{ string: 'aaa' }, { string: 'Abc' }, { string: 'b' }];
 
-    expect(pipe.transform(array, 'string', false, 'case-insensitive')).toEqual(arraySorted);
+    expect(pipe.transform(array, 'string', false, true)).toEqual(arraySorted);
   });
 
   it('should not revert ordered array', () => {
@@ -218,24 +218,22 @@ describe('Ng2OrderPipe', () => {
       { customer: { name: 'test' }}
     ];
 
-    expect(pipe.transform(arr, 'customer.name', false, 'case-insensitive')).toEqual(res);
-
+    expect(pipe.transform(arr, 'customer.name', false, true)).toEqual(res);
   });
 
-
-  it('should sort by multiple fields', () => {
-    const array = [
-      { name: 'qwe', age: 1 },
-      { name: 'asd', age: 3 },
-      { name: 'asd', age: 2 },
-    ];
-
-    const result = [
-      { name: 'asd', age: 2 },
-      { name: 'asd', age: 3 },
-      { name: 'qwe', age: 1 },
-    ];
-
-    expect(pipe.transform(array, 'name,age')).toEqual(result);
-  });
+  // it('should sort by multiple fields', () => {
+  //   const array = [
+  //     { name: 'qwe', age: 1 },
+  //     { name: 'asd', age: 3 },
+  //     { name: 'asd', age: 2 },
+  //   ];
+  //
+  //   const result = [
+  //     { name: 'asd', age: 2 },
+  //     { name: 'asd', age: 3 },
+  //     { name: 'qwe', age: 1 },
+  //   ];
+  //
+  //   expect(pipe.transform(array, 'name,age')).toEqual(result);
+  // });
 });
