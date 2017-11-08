@@ -351,7 +351,8 @@ var OrderPipe = OrderPipe_1 = (function () {
 }());
 OrderPipe = OrderPipe_1 = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Pipe */])({
-        name: 'orderBy'
+        name: 'orderBy',
+        pure: false
     })
 ], OrderPipe);
 
