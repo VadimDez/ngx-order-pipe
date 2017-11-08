@@ -18,4 +18,4 @@ before_script:
   - npm prune
 cache:
   directories:
-    - node_modules
+    - ./examples/ng-cli/node_modules
