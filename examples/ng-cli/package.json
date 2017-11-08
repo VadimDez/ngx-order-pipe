@@ -7,6 +7,7 @@
     "start": "ng serve",
     "build": "ng build --base-href /ngx-order-pipe/",
     "test": "ng test --watch=false",
+    "test:watch": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "gh-pages": "ngh --message=\"update\" --dir ./dist"
