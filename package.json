@@ -1,6 +1,6 @@
 {
   "name": "ngx-order-pipe",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "Angular order pipe, order collection by a field",
   "main": "dist/bundles/ngx-order-pipe.js",
   "module": "dist/index.js",

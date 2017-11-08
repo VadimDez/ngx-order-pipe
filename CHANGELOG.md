@@ -1,5 +1,9 @@
 # Changelog
 
+### 1.1.0
+* [[#23](https://github.com/VadimDez/ngx-order-pipe/issues/23)] - Refresh orderBy after *ngFor is updated?
+* [[#31](https://github.com/VadimDez/ngx-order-pipe/pull/31)] - Made pipe impure to detect all the changes
+
 ### 1.0.4
 * [[#26](https://github.com/VadimDez/ngx-order-pipe/issues/26)] - Feature request to switch it to case-insensitive
 * [[#27](https://github.com/VadimDez/ngx-order-pipe/pull/27)] - Adding support for case insensitive ordering
