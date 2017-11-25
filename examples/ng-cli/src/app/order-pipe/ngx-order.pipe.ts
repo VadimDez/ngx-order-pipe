@@ -25,6 +25,16 @@ export class OrderPipe implements PipeTransform {
     if (OrderPipe.isString(a) && OrderPipe.isString(b)) {
       return a.localeCompare(b);
     }
+    return OrderPipe.defaultCompare(a, b);
+  }
+
+  /**
+   * Default compare method
+   * 
+   * @param a 
+   * @param b 
+   */
+  static defaultCompare(a: any, b: any) {
     return a > b ? 1 : -1;
   }
 
@@ -105,33 +115,21 @@ export class OrderPipe implements PipeTransform {
       expression = OrderPipe.parseExpression(expression);
     }
 
+    let compareFn: Function = isCaseInsensitive ? OrderPipe.caseInsensitiveSort : OrderPipe.defaultCompare;
+    
     let array: any[] = value.sort((a: any, b: any): number => {
       if (!expression) {
-        if (isCaseInsensitive) {
-          return OrderPipe.caseInsensitiveSort(a, b);
-        }
-        return a > b ? 1 : -1;
+        return compareFn(a, b);
       }
 
-      if (!isDeepLink && expression) {
-        if (isCaseInsensitive) {
-          if (a && b) {
-            return OrderPipe.caseInsensitiveSort(a[expression], b[expression]);
-          }
-          return OrderPipe.caseInsensitiveSort(a, b);
-        }
-        
+      if (!isDeepLink) {
         if (a && b) {
-          return a[expression] > b[expression] ? 1 : -1;
+          return compareFn(a[expression], b[expression]);
         }
-        return a > b ? 1 : -1;
+        return compareFn(a, b);
       }
-
-      if (isCaseInsensitive) {
-        return OrderPipe.caseInsensitiveSort(OrderPipe.getValue(a, expression), OrderPipe.getValue(b, expression));
-      }
-
-      return OrderPipe.getValue(a, expression) > OrderPipe.getValue(b, expression) ? 1 : -1;
+      
+      return compareFn(OrderPipe.getValue(a, expression), OrderPipe.getValue(b, expression));
     });
 
     if (reverse) {
@@ -140,7 +138,6 @@ export class OrderPipe implements PipeTransform {
 
     return array;
   }
-
 
   /**
    * Transform Object
