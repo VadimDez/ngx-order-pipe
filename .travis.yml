@@ -16,3 +16,6 @@ before_install:
   - sudo dpkg -i google-chrome*.deb
 before_script:
   - npm prune
+cache:
+  directories:
+    - ./examples/ng-cli/node_modules
