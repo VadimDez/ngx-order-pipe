@@ -1,5 +1,9 @@
 # Changelog
 
+### 1.1.1
+* [[#23](https://github.com/VadimDez/ngx-order-pipe/issues/34)] - order sorting issue in asc & dec
+* [[#31](https://github.com/VadimDez/ngx-order-pipe/pull/36)] - Added comparator
+
 ### 1.1.0
 * [[#23](https://github.com/VadimDez/ngx-order-pipe/issues/23)] - Refresh orderBy after *ngFor is updated?
 * [[#31](https://github.com/VadimDez/ngx-order-pipe/pull/31)] - Made pipe impure to detect all the changes
