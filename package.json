@@ -10,7 +10,8 @@
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rimraf dist && tsc -p tsconfig-esm.json && mkdir ./dist/bundles && rollup -c rollup.config.js dist/index.js > dist/bundles/ngx-order-pipe.umd.js && ngc -p tsconfig.json"
+    "build": "rimraf dist && tsc -p tsconfig-esm.json && mkdir ./dist/bundles && rollup -c rollup.config.js dist/index.js > dist/bundles/ngx-order-pipe.umd.js && ngc -p tsconfig.json",
+    "copy": "cp -R ./examples/ng-cli/src/app/order-pipe/ ./src/"
   },
   "repository": {
     "type": "git",
