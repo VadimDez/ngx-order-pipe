@@ -84,17 +84,17 @@ export class OrderPipe implements PipeTransform {
     object[expression[i]] = value;
   }
 
-  transform(value: any | any[], expression?: any, reverse?: boolean, isCaseInsensitive: boolean = false): any {
+  transform(value: any | any[], expression?: any, reverse?: boolean, isCaseInsensitive: boolean = false, comparator?: Function): any {
     if (!value) {
       return value;
     }
     
     if (Array.isArray(value)) {
-      return this.sortArray(value, expression, reverse, isCaseInsensitive);
+      return this.sortArray(value, expression, reverse, isCaseInsensitive, comparator);
     }
     
     if (typeof value === 'object') {
-      return this.transformObject(value, expression, reverse, isCaseInsensitive);
+      return this.transformObject(value, expression, reverse, isCaseInsensitive, comparator);
     }
 
     return value;
@@ -107,15 +107,23 @@ export class OrderPipe implements PipeTransform {
    * @param expression
    * @param reverse
    * @param isCaseInsensitive
+   * @param comparator
    * @returns {any[]}
    */
-  private sortArray(value: any[], expression?: any, reverse?: boolean, isCaseInsensitive?: boolean): any[] {
+  private sortArray(value: any[], expression?: any, reverse?: boolean, isCaseInsensitive?: boolean, comparator?: Function): any[] {
     const isDeepLink = expression && expression.indexOf('.') !== -1;
+
     if (isDeepLink) {
       expression = OrderPipe.parseExpression(expression);
     }
 
-    let compareFn: Function = isCaseInsensitive ? OrderPipe.caseInsensitiveSort : OrderPipe.defaultCompare;
+    let compareFn: Function;
+    
+    if (comparator && typeof comparator === 'function') {
+      compareFn = comparator;
+    } else {
+      compareFn = isCaseInsensitive ? OrderPipe.caseInsensitiveSort : OrderPipe.defaultCompare;
+    }
     
     let array: any[] = value.sort((a: any, b: any): number => {
       if (!expression) {
@@ -146,9 +154,10 @@ export class OrderPipe implements PipeTransform {
    * @param expression
    * @param reverse
    * @param isCaseInsensitive
+   * @param comparator
    * @returns {any[]}
    */
-  private transformObject(value: any | any[], expression?: any, reverse?: boolean, isCaseInsensitive?: boolean): any {
+  private transformObject(value: any | any[], expression?: any, reverse?: boolean, isCaseInsensitive?: boolean, comparator?: Function): any {
 
     let parsedExpression = OrderPipe.parseExpression(expression);
     let lastPredicate = parsedExpression.pop();

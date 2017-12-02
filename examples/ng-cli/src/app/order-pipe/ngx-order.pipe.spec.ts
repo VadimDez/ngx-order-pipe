@@ -221,6 +221,75 @@ describe('OrderPipe', () => {
     expect(pipe.transform(arr, 'customer.name', false, true)).toEqual(res);
   });
 
+  describe('number-like strings', () => {
+    it('should compare two number-like strings', () => {
+      const el1 = '1';
+      const el2 = '10';
+      const arr = [el2, el1];
+      const res = [el1, el2];
+  
+      expect(pipe.transform(arr)).toEqual(res);
+    });
+
+    it('should compare two number-like strings with commas', () => {
+      const el1 = '$299,000';
+      const el2 = '$1,100,000';
+      const arr = [el2, el1];
+
+      expect(pipe.transform(arr)).toEqual(arr);
+    });
+  });
+
+  describe('order with comparator', () => {
+    it('should return same order with "true"-comparator', () => {
+      const arr = [3, 2, 1];
+
+      expect(pipe.transform(arr, null, false, true, (a, b) => {
+        return true;
+      })).toEqual(arr);
+    });
+
+    it('should change the order with custom comparator', () => {
+      const arr = [3, 2, 1];
+      const res = [1, 2, 3];
+
+      expect(pipe.transform(arr, null, false, true, (a, b) => {
+        return a > b ? 1 : -1;
+      })).toEqual(res);
+    });
+
+    it('should return change to order with custom comparator', () => {
+      const arr = ['$10,0', '$2,0', '$100,0'];
+      const res = ['$2,0', '$10,0', '$100,0'];
+
+      const parse = value => parseInt(value.replace(/[^0-9]/g, ''));
+
+      expect(pipe.transform(arr, null, false, true, (a, b) => {
+        const newA = parse(a);
+        const newB = parse(b);
+        return newA > newB ? 1 : -1;
+      })).toEqual(res);
+    });
+
+    describe('test not valid values for comparator', () => {
+      const arr = [3, 2, 1];
+      const res = [1, 2, 3];
+      
+      it('should still work if comparator is null', () => {
+        expect(pipe.transform(arr, null, false, true, null)).toEqual(res);
+      });
+      
+      it('should still work if comparator is undefined', () => {
+        expect(pipe.transform(arr, null, false, true, undefined)).toEqual(res);
+        expect(pipe.transform(arr, null, false, true, void 0)).toEqual(res);
+      });
+
+      it('should still work if comparator is not returning anything', () => {
+        expect(pipe.transform(arr, null, false, true, () => {})).toEqual(arr);
+      });
+    });
+  });
+
   // it('should sort by multiple fields', () => {
   //   const array = [
   //     { name: 'qwe', age: 1 },
