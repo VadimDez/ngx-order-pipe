@@ -25,6 +25,16 @@ export class OrderPipe implements PipeTransform {
     if (OrderPipe.isString(a) && OrderPipe.isString(b)) {
       return a.localeCompare(b);
     }
+    return OrderPipe.defaultCompare(a, b);
+  }
+
+  /**
+   * Default compare method
+   * 
+   * @param a 
+   * @param b 
+   */
+  static defaultCompare(a: any, b: any) {
     return a > b ? 1 : -1;
   }
 
@@ -74,17 +84,17 @@ export class OrderPipe implements PipeTransform {
     object[expression[i]] = value;
   }
 
-  transform(value: any | any[], expression?: any, reverse?: boolean, isCaseInsensitive: boolean = false): any {
+  transform(value: any | any[], expression?: any, reverse?: boolean, isCaseInsensitive: boolean = false, comparator?: Function): any {
     if (!value) {
       return value;
     }
     
     if (Array.isArray(value)) {
-      return this.sortArray(value, expression, reverse, isCaseInsensitive);
+      return this.sortArray(value, expression, reverse, isCaseInsensitive, comparator);
     }
     
     if (typeof value === 'object') {
-      return this.transformObject(value, expression, reverse, isCaseInsensitive);
+      return this.transformObject(value, expression, reverse, isCaseInsensitive, comparator);
     }
 
     return value;
@@ -97,41 +107,37 @@ export class OrderPipe implements PipeTransform {
    * @param expression
    * @param reverse
    * @param isCaseInsensitive
+   * @param comparator
    * @returns {any[]}
    */
-  private sortArray(value: any[], expression?: any, reverse?: boolean, isCaseInsensitive?: boolean): any[] {
+  private sortArray(value: any[], expression?: any, reverse?: boolean, isCaseInsensitive?: boolean, comparator?: Function): any[] {
     const isDeepLink = expression && expression.indexOf('.') !== -1;
+
     if (isDeepLink) {
       expression = OrderPipe.parseExpression(expression);
     }
 
+    let compareFn: Function;
+    
+    if (comparator && typeof comparator === 'function') {
+      compareFn = comparator;
+    } else {
+      compareFn = isCaseInsensitive ? OrderPipe.caseInsensitiveSort : OrderPipe.defaultCompare;
+    }
+    
     let array: any[] = value.sort((a: any, b: any): number => {
       if (!expression) {
-        if (isCaseInsensitive) {
-          return OrderPipe.caseInsensitiveSort(a, b);
-        }
-        return a > b ? 1 : -1;
+        return compareFn(a, b);
       }
 
-      if (!isDeepLink && expression) {
-        if (isCaseInsensitive) {
-          if (a && b) {
-            return OrderPipe.caseInsensitiveSort(a[expression], b[expression]);
-          }
-          return OrderPipe.caseInsensitiveSort(a, b);
-        }
-        
+      if (!isDeepLink) {
         if (a && b) {
-          return a[expression] > b[expression] ? 1 : -1;
+          return compareFn(a[expression], b[expression]);
         }
-        return a > b ? 1 : -1;
+        return compareFn(a, b);
       }
-
-      if (isCaseInsensitive) {
-        return OrderPipe.caseInsensitiveSort(OrderPipe.getValue(a, expression), OrderPipe.getValue(b, expression));
-      }
-
-      return OrderPipe.getValue(a, expression) > OrderPipe.getValue(b, expression) ? 1 : -1;
+      
+      return compareFn(OrderPipe.getValue(a, expression), OrderPipe.getValue(b, expression));
     });
 
     if (reverse) {
@@ -141,7 +147,6 @@ export class OrderPipe implements PipeTransform {
     return array;
   }
 
-
   /**
    * Transform Object
    *
@@ -149,9 +154,10 @@ export class OrderPipe implements PipeTransform {
    * @param expression
    * @param reverse
    * @param isCaseInsensitive
+   * @param comparator
    * @returns {any[]}
    */
-  private transformObject(value: any | any[], expression?: any, reverse?: boolean, isCaseInsensitive?: boolean): any {
+  private transformObject(value: any | any[], expression?: any, reverse?: boolean, isCaseInsensitive?: boolean, comparator?: Function): any {
 
     let parsedExpression = OrderPipe.parseExpression(expression);
     let lastPredicate = parsedExpression.pop();
