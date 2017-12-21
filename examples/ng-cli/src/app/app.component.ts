@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  order: string = 'name';
+  order: string = 'info.name';
   reverse: boolean = false;
   collection: any[] = [
     {
@@ -46,7 +46,7 @@ export class AppComponent {
       }
     },
   ];
-
+  
   setOrder(value: string) {
     if (this.order === value) {
       this.reverse = !this.reverse;
