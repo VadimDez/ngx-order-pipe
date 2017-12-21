@@ -4,6 +4,10 @@ $grey-color: #a7a7a7;
   width: 95%;
 }
 
+.mdl-layout__header-row iframe {
+  width: 100px;
+}
+
 thead th {
   cursor: pointer;
   margin-right: 15px;
