@@ -16,7 +16,7 @@ webpackEmptyContext.id = "../../../../../src async recursive";
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--no-drawer-button\">\n  <header class=\"mdl-layout__header\">\n    <div class=\"mdl-layout__header-row\">\n      <span class=\"mdl-layout-title\">ngx-order-pipe</span>\n      <div class=\"mdl-layout-spacer\"></div>\n      \n      <iframe src=\"https://ghbtns.com/github-btn.html?user=vadimdez&repo=ngx-order-pipe&type=star&count=true\" frameborder=\"0\" scrolling=\"0\" width=\"170px\" height=\"20px\"></iframe>\n    </div>\n  </header>\n\n  <main class=\"mdl-layout__content\">\n    <div class=\"page-content\">\n\n      <div class=\"mdl-grid\">\n        <div class=\"mdl-cell mdl-cell--6-col mdl-cell--8-col-desktop mdl-cell--2-offset-desktop mdl-cell--12-col-tablet mdl-cell--12-col-phone\">\n          <h2>Angular4 order pipe</h2>\n          <p class=\"short-description\">\n            Order your collection by a field\n          </p>\n\n          <p>\n            Press on the label to re-order table\n          </p>\n\n          <div class=\"mdl-grid mdl-grid--no-spacing\">\n            <div class=\"mdl-cell mdl-cell--6-col mdl-cell--6-col-desktop mdl-cell--4-col-tablet mdl-cell--12-col-phone\">\n              <table class=\"mdl-data-table mdl-js-data-table mdl-shadow--2dp\">\n                <thead>\n                <tr>\n                  <th [class.active]=\"order === 'id'\"\n                      (click)=\"setOrder('id')\"\n                      class=\"mdl-data-table__cell--non-numeric\"\n                  >\n                    ID <span [hidden]=\"reverse\">▼</span><span [hidden]=\"!reverse\">▲</span>\n                  </th>\n                  <th [class.active]=\"order === 'info.name'\"\n                      (click)=\"setOrder('info.name')\"\n                      class=\"mdl-data-table__cell--non-numeric\"\n                  >\n                    Name <span [hidden]=\"reverse\">▼</span><span [hidden]=\"!reverse\">▲</span>\n                  </th>\n                  <th [class.active]=\"order === 'info.number'\"\n                      (click)=\"setOrder('info.number')\"\n                  >\n                    Phone number <span [hidden]=\"reverse\">▼</span><span [hidden]=\"!reverse\">▲</span>\n                  </th>\n                  <th [class.active]=\"order === 'info.age'\" (click)=\"setOrder('info.age')\">\n                    Age <span [hidden]=\"reverse\">▼</span><span [hidden]=\"!reverse\">▲</span>\n                  </th>\n                </tr>\n                </thead>\n                <tbody>\n                <tr *ngFor=\"let row of collection | orderBy: order:reverse:'case-insensitive'\">\n                  <td>{{ row.id }}</td>\n                  <td class=\"mdl-data-table__cell--non-numeric\">{{ row.info.name }}</td>\n                  <td>{{ row.info.number }}</td>\n                  <td>{{ row.info.age }}</td>\n                </tr>\n                </tbody>\n              </table>\n            </div>\n            <div class=\"mdl-cell mdl-cell--6-col mdl-cell--6-col-desktop mdl-cell--4-col-tablet mdl-cell--12-col-phone\">\n              <h5>Pipe</h5>\n              <p>\n                orderBy: \"{{ order }}\":{{ reverse}}\n              </p>\n              <h5>Collection</h5>\n              <p>\n                {{ collection | json }}\n              </p>\n            </div>\n          </div>\n\n        </div>\n      </div>\n\n    </div>\n  </main>\n\n  <footer class=\"mdl-mini-footer\">\n    <div class=\"mdl-mini-footer__left-section\">\n      <div class=\"mdl-logo\">ngx-order-pipe</div>\n      <ul class=\"mdl-mini-footer__link-list\">\n        <li><a href=\"https://github.com/VadimDez/ngx-order-pipe\">Github</a></li>\n        <li><a href=\"https://github.com/VadimDez\">Vadym Yatsyuk</a></li>\n      </ul>\n    </div>\n  </footer>\n</div>\n"
+module.exports = "<div class=\"mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--no-drawer-button\">\n  <header class=\"mdl-layout__header\">\n    <div class=\"mdl-layout__header-row\">\n      <span class=\"mdl-layout-title\">ngx-order-pipe</span>\n      \n      <div class=\"mdl-layout-spacer\"></div>\n      \n      <span>\n        <iframe src=\"https://ghbtns.com/github-btn.html?user=vadimdez&repo=ngx-order-pipe&type=star&count=true\" frameborder=\"0\" scrolling=\"0\" width=\"170px\" height=\"20px\"></iframe>\n      </span>\n    </div>\n  </header>\n\n  <main class=\"mdl-layout__content\">\n    <div class=\"page-content\">\n\n      <div class=\"mdl-grid\">\n        <div class=\"mdl-cell mdl-cell--6-col mdl-cell--8-col-desktop mdl-cell--2-offset-desktop mdl-cell--12-col-tablet mdl-cell--12-col-phone\">\n          <h2>Angular4 order pipe</h2>\n          <p class=\"short-description\">\n            Order your collection by a field\n          </p>\n\n          <p>\n            Press on the label to re-order table\n          </p>\n\n          <div class=\"mdl-grid mdl-grid--no-spacing\">\n            <div class=\"mdl-cell mdl-cell--6-col mdl-cell--6-col-desktop mdl-cell--4-col-tablet mdl-cell--12-col-phone\">\n              <table class=\"mdl-data-table mdl-js-data-table mdl-shadow--2dp\">\n                <thead>\n                <tr>\n                  <th [class.active]=\"order === 'id'\"\n                      (click)=\"setOrder('id')\"\n                      class=\"mdl-data-table__cell--non-numeric\"\n                  >\n                    ID <span [hidden]=\"reverse\">▼</span><span [hidden]=\"!reverse\">▲</span>\n                  </th>\n                  <th [class.active]=\"order === 'info.name'\"\n                      (click)=\"setOrder('info.name')\"\n                      class=\"mdl-data-table__cell--non-numeric\"\n                  >\n                    Name <span [hidden]=\"reverse\">▼</span><span [hidden]=\"!reverse\">▲</span>\n                  </th>\n                  <th [class.active]=\"order === 'info.number'\"\n                      (click)=\"setOrder('info.number')\"\n                  >\n                    Phone number <span [hidden]=\"reverse\">▼</span><span [hidden]=\"!reverse\">▲</span>\n                  </th>\n                  <th [class.active]=\"order === 'info.age'\" (click)=\"setOrder('info.age')\">\n                    Age <span [hidden]=\"reverse\">▼</span><span [hidden]=\"!reverse\">▲</span>\n                  </th>\n                </tr>\n                </thead>\n                <tbody>\n                <tr *ngFor=\"let row of collection | orderBy: order:reverse:'case-insensitive'\">\n                  <td>{{ row.id }}</td>\n                  <td class=\"mdl-data-table__cell--non-numeric\">{{ row.info.name }}</td>\n                  <td>{{ row.info.number }}</td>\n                  <td>{{ row.info.age }}</td>\n                </tr>\n                </tbody>\n              </table>\n            </div>\n            <div class=\"mdl-cell mdl-cell--6-col mdl-cell--6-col-desktop mdl-cell--4-col-tablet mdl-cell--12-col-phone\">\n              <h5>Pipe</h5>\n              <p>\n                orderBy: \"{{ order }}\":{{ reverse}}\n              </p>\n              <h5>Collection</h5>\n              <p>\n                {{ collection | json }}\n              </p>\n            </div>\n          </div>\n\n        </div>\n      </div>\n\n    </div>\n  </main>\n\n  <footer class=\"mdl-mini-footer\">\n    <div class=\"mdl-mini-footer__left-section\">\n      <div class=\"mdl-logo\">ngx-order-pipe</div>\n      <ul class=\"mdl-mini-footer__link-list\">\n        <li><a href=\"https://github.com/VadimDez/ngx-order-pipe\">Github</a></li>\n        <li><a href=\"https://github.com/VadimDez\">Vadym Yatsyuk</a></li>\n      </ul>\n    </div>\n  </footer>\n</div>\n"
 
 /***/ }),
 
@@ -28,7 +28,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".mdl-data-table {\n  width: 95%; }\n\nthead th {\n  cursor: pointer;\n  margin-right: 15px;\n  margin-left: 15px; }\n  thead th span {\n    visibility: hidden; }\n  thead th.active {\n    color: #000; }\n    thead th.active span {\n      visibility: visible; }\n\n.short-description {\n  color: #a7a7a7;\n  font-size: 18px;\n  border-left: solid 5px #a7a7a7;\n  padding-left: 10px; }\n\n.mdl-mini-footer {\n  padding-bottom: 22px;\n  padding-top: 16px; }\n\nh5 {\n  font-size: 16px;\n  color: rgba(0, 0, 0, 0.54);\n  font-weight: 500;\n  text-transform: uppercase; }\n  @media (min-width: 480px) {\n    h5:first-child {\n      margin-top: 0; } }\n", ""]);
+exports.push([module.i, ".mdl-data-table {\n  width: 95%; }\n\n.mdl-layout__header-row iframe {\n  width: 100px; }\n\nthead th {\n  cursor: pointer;\n  margin-right: 15px;\n  margin-left: 15px; }\n  thead th span {\n    visibility: hidden; }\n  thead th.active {\n    color: #000; }\n    thead th.active span {\n      visibility: visible; }\n\n.short-description {\n  color: #a7a7a7;\n  font-size: 18px;\n  border-left: solid 5px #a7a7a7;\n  padding-left: 10px; }\n\n.mdl-mini-footer {\n  padding-bottom: 22px;\n  padding-top: 16px; }\n\nh5 {\n  font-size: 16px;\n  color: rgba(0, 0, 0, 0.54);\n  font-weight: 500;\n  text-transform: uppercase; }\n  @media (min-width: 480px) {\n    h5:first-child {\n      margin-top: 0; } }\n", ""]);
 
 // exports
 
@@ -53,7 +53,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 var AppComponent = (function () {
     function AppComponent() {
-        this.order = 'name';
+        this.order = 'info.name';
         this.reverse = false;
         this.collection = [
             {
@@ -224,6 +224,15 @@ var OrderPipe = OrderPipe_1 = (function () {
         if (OrderPipe_1.isString(a) && OrderPipe_1.isString(b)) {
             return a.localeCompare(b);
         }
+        return OrderPipe_1.defaultCompare(a, b);
+    };
+    /**
+     * Default compare method
+     *
+     * @param a
+     * @param b
+     */
+    OrderPipe.defaultCompare = function (a, b) {
         return a > b ? 1 : -1;
     };
     /**
@@ -267,16 +276,16 @@ var OrderPipe = OrderPipe_1 = (function () {
         }
         object[expression[i]] = value;
     };
-    OrderPipe.prototype.transform = function (value, expression, reverse, isCaseInsensitive) {
+    OrderPipe.prototype.transform = function (value, expression, reverse, isCaseInsensitive, comparator) {
         if (isCaseInsensitive === void 0) { isCaseInsensitive = false; }
         if (!value) {
             return value;
         }
         if (Array.isArray(value)) {
-            return this.sortArray(value, expression, reverse, isCaseInsensitive);
+            return this.sortArray(value, expression, reverse, isCaseInsensitive, comparator);
         }
         if (typeof value === 'object') {
-            return this.transformObject(value, expression, reverse, isCaseInsensitive);
+            return this.transformObject(value, expression, reverse, isCaseInsensitive, comparator);
         }
         return value;
     };
@@ -287,36 +296,32 @@ var OrderPipe = OrderPipe_1 = (function () {
      * @param expression
      * @param reverse
      * @param isCaseInsensitive
+     * @param comparator
      * @returns {any[]}
      */
-    OrderPipe.prototype.sortArray = function (value, expression, reverse, isCaseInsensitive) {
+    OrderPipe.prototype.sortArray = function (value, expression, reverse, isCaseInsensitive, comparator) {
         var isDeepLink = expression && expression.indexOf('.') !== -1;
         if (isDeepLink) {
             expression = OrderPipe_1.parseExpression(expression);
         }
+        var compareFn;
+        if (comparator && typeof comparator === 'function') {
+            compareFn = comparator;
+        }
+        else {
+            compareFn = isCaseInsensitive ? OrderPipe_1.caseInsensitiveSort : OrderPipe_1.defaultCompare;
+        }
         var array = value.sort(function (a, b) {
             if (!expression) {
-                if (isCaseInsensitive) {
-                    return OrderPipe_1.caseInsensitiveSort(a, b);
-                }
-                return a > b ? 1 : -1;
+                return compareFn(a, b);
             }
-            if (!isDeepLink && expression) {
-                if (isCaseInsensitive) {
-                    if (a && b) {
-                        return OrderPipe_1.caseInsensitiveSort(a[expression], b[expression]);
-                    }
-                    return OrderPipe_1.caseInsensitiveSort(a, b);
-                }
+            if (!isDeepLink) {
                 if (a && b) {
-                    return a[expression] > b[expression] ? 1 : -1;
+                    return compareFn(a[expression], b[expression]);
                 }
-                return a > b ? 1 : -1;
+                return compareFn(a, b);
             }
-            if (isCaseInsensitive) {
-                return OrderPipe_1.caseInsensitiveSort(OrderPipe_1.getValue(a, expression), OrderPipe_1.getValue(b, expression));
-            }
-            return OrderPipe_1.getValue(a, expression) > OrderPipe_1.getValue(b, expression) ? 1 : -1;
+            return compareFn(OrderPipe_1.getValue(a, expression), OrderPipe_1.getValue(b, expression));
         });
         if (reverse) {
             return array.reverse();
@@ -330,9 +335,10 @@ var OrderPipe = OrderPipe_1 = (function () {
      * @param expression
      * @param reverse
      * @param isCaseInsensitive
+     * @param comparator
      * @returns {any[]}
      */
-    OrderPipe.prototype.transformObject = function (value, expression, reverse, isCaseInsensitive) {
+    OrderPipe.prototype.transformObject = function (value, expression, reverse, isCaseInsensitive, comparator) {
         var parsedExpression = OrderPipe_1.parseExpression(expression);
         var lastPredicate = parsedExpression.pop();
         var oldValue = OrderPipe_1.getValue(value, parsedExpression);
