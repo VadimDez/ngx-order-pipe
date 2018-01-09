@@ -1,5 +1,8 @@
 # Changelog
 
+### 1.1.2
+* [[#42](https://github.com/VadimDez/ngx-order-pipe/issues/42)] - Can't find module
+
 ### 1.1.1
 * [[#23](https://github.com/VadimDez/ngx-order-pipe/issues/34)] - order sorting issue in asc & dec
 * [[#31](https://github.com/VadimDez/ngx-order-pipe/pull/36)] - Added comparator
