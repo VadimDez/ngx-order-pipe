@@ -7,6 +7,10 @@
 ### Demo page
 [https://vadimdez.github.io/ngx-order-pipe/](https://vadimdez.github.io/ngx-order-pipe/)
 
+or see code example
+
+[https://stackblitz.com/edit/angular-hmfhmx](https://stackblitz.com/edit/angular-hmfhmx?file=app%2Fapp.component.html)
+
 ## Install
 
 ```
