@@ -1,5 +1,9 @@
 # Changelog
 
+### 1.1.3
+* [[#35](https://github.com/VadimDez/ngx-order-pipe/issues/35)] - Null or undefined values
+* [[#44](https://github.com/VadimDez/ngx-order-pipe/pull/44)] - Changing default comparator so it would properly sort null and undefined values.
+
 ### 1.1.2
 * [[#42](https://github.com/VadimDez/ngx-order-pipe/issues/42)] - Can't find module
 
