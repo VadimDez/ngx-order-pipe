@@ -48,7 +48,7 @@ describe('OrderPipe', () => {
 
     expect(pipe.transform(arrayA, 'a')).toEqual(arrayB);
   });
-  
+
   it('should order strings too', () => {
     const array = [{ string: 'abc' }, { string: 'aaa' }, { string: 'b' }];
     const arraySorted = [{ string: 'aaa' }, { string: 'abc' }, { string: 'b' }];

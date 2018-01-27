@@ -43,8 +43,8 @@ describe('OrderPipe', () => {
   });
 
   it('should order by a', () => {
-    const arrayA = [{ a: 2 }, { a: 1 }, { a: 3 }];
-    const arrayB = [{ a: 1 }, { a: 2 }, { a: 3 }];
+    const arrayA = [{ a: 2 }, { a: null }, { a: 1 }, { a: 3 }];
+    const arrayB = [{ a: 1 }, { a: 2 }, { a: 3 }, { a: null }];
 
     expect(pipe.transform(arrayA, 'a')).toEqual(arrayB);
   });

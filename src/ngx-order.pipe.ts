@@ -35,7 +35,7 @@ export class OrderPipe implements PipeTransform {
    * @param b 
    */
   static defaultCompare(a: any, b: any) {
-	if (a === b) {
+    if (a === b) {
       return 0;
     }
     if (a == null) {
