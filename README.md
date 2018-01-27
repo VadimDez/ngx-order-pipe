@@ -17,9 +17,12 @@ or see code example
 npm install  ngx-order-pipe --save
 ```
 
-## Usage
+## Setup
 
-In case you're using `systemjs` - see configuration [here](https://github.com/VadimDez/ngx-order-pipe/blob/master/SYSTEMJS.md).
+In case you're using `systemjs` - see configuration [here](https://github.com/VadimDez/ngx-order-pipe/blob/master/SYSTEMJS.md). Otherwise skip this part.
+
+
+## Usage
 
 ##### In HTML template
 
