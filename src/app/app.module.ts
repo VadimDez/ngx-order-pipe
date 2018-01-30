@@ -1,8 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+
 import { AppComponent } from './app.component';
 import { OrderModule } from './order-pipe/ngx-order.module';
+
 
 @NgModule({
   declarations: [
