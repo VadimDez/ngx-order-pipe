@@ -35,7 +35,7 @@
   },
   "homepage": "https://github.com/VadimDez/ngx-order-pipe#readme",
   "peerDependencies": {
-    "@angular/core": ">=2.0.0"
+    "@angular/core": ">=5.0.0"
   },
   "dependencies": {},
   "devDependencies": {
@@ -68,6 +68,6 @@
     "protractor": "~5.1.2",
     "ts-node": "~4.1.0",
     "tslint": "~5.9.1",
-    "typescript": "~2.5.3"
+    "typescript": "2.6.2"
   }
 }
