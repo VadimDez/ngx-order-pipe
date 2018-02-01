@@ -1,5 +1,30 @@
 # Changelog
 
+### 1.2.0
+* [[#46](https://github.com/VadimDez/ngx-order-pipe/pull/46)] - Restructure
+* [[#45](https://github.com/VadimDez/ngx-order-pipe/issues/45)] - Use packagr
+* [[#32](https://github.com/VadimDez/ngx-order-pipe/issues/32)] - Angular 5
+
+*Bundle location is changed, therefore SYSTEMJS config should be updated to*
+
+Append to `map`
+
+```js
+var map = {
+    ...
+    'ngx-order-pipe': 'node_modules/ngx-order-pipe/bundles'
+}
+```
+
+and then add to `packages`
+
+```js
+var packages = {
+    ...
+    'ngx-order-pipe': { defaultExtension: 'js' }
+}
+```
+
 ### 1.1.3
 * [[#35](https://github.com/VadimDez/ngx-order-pipe/issues/35)] - Null or undefined values
 * [[#44](https://github.com/VadimDez/ngx-order-pipe/pull/44)] - Changing default comparator so it would properly sort null and undefined values.
