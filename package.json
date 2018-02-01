@@ -2,16 +2,15 @@
   "name": "ngx-order-pipe",
   "version": "1.1.3",
   "description": "Angular order pipe, order collection by a field",
-  "main": "dist/bundles/ngx-order-pipe.umd.js",
-  "module": "dist/index.js",
-  "typings": "dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rimraf dist && tsc -p tsconfig-esm.json && mkdir ./dist/bundles && rollup -c rollup.config.js dist/index.js > dist/bundles/ngx-order-pipe.umd.js && ngc -p tsconfig.json",
-    "copy": "cp -R ./examples/ng-cli/src/app/order-pipe/ ./src/"
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build --prod",
+    "test": "ng test --watch false",
+    "test:w": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e",
+    "packagr": "ng-packagr -p ng-package.json"
   },
   "repository": {
     "type": "git",
@@ -32,26 +31,39 @@
   },
   "homepage": "https://github.com/VadimDez/ngx-order-pipe#readme",
   "peerDependencies": {
-    "@angular/core": ">=2.0.0"
+    "@angular/core": ">=5.0.0"
   },
-  "dependencies": {},
   "devDependencies": {
-    "@angular/common": "^2.4.4",
-    "@angular/compiler": "^2.4.4",
-    "@angular/compiler-cli": "^2.4.4",
-    "@angular/core": "^2.4.4",
-    "@types/jasmine": "^2.5.41",
-    "@types/node": "^7.0.0",
-    "@types/phantom": "^3.2.0",
-    "@types/protractor": "^4.0.0",
-    "@types/selenium-webdriver": "^2.53.39",
-    "@types/systemjs": "^0.19.33",
-    "protractor": "^5.0.0",
-    "rollup": "^0.43.0",
-    "rollup-plugin-commonjs": "^8.0.2",
-    "rollup-plugin-node-resolve": "^3.0.0",
-    "rxjs": "^5.0.3",
-    "typescript": "^2.1.5",
-    "zone.js": "^0.7.6"
+    "@angular/animations": "^5.2.0",
+    "@angular/cli": "1.6.6",
+    "@angular/common": "^5.2.0",
+    "@angular/compiler": "^5.2.0",
+    "@angular/compiler-cli": "^5.2.0",
+    "@angular/core": "^5.2.0",
+    "@angular/forms": "^5.2.0",
+    "@angular/http": "^5.2.0",
+    "@angular/language-service": "^5.2.0",
+    "@angular/platform-browser": "^5.2.0",
+    "@angular/platform-browser-dynamic": "^5.2.0",
+    "@angular/router": "^5.2.0",
+    "@types/jasmine": "~2.8.3",
+    "@types/jasminewd2": "~2.0.2",
+    "@types/node": "~6.0.60",
+    "codelyzer": "^4.0.1",
+    "core-js": "^2.4.1",
+    "jasmine-core": "~2.8.0",
+    "jasmine-spec-reporter": "~4.2.1",
+    "karma": "~2.0.0",
+    "karma-chrome-launcher": "~2.2.0",
+    "karma-coverage-istanbul-reporter": "^1.2.1",
+    "karma-jasmine": "~1.1.0",
+    "karma-jasmine-html-reporter": "^0.2.2",
+    "ng-packagr": "^1.6.0",
+    "protractor": "~5.1.2",
+    "rxjs": "^5.5.6",
+    "ts-node": "~4.1.0",
+    "tslint": "~5.9.1",
+    "typescript": "2.6.2",
+    "zone.js": "^0.8.19"
   }
 }
