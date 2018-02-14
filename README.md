@@ -16,6 +16,7 @@ or see code example
 ```
 npm install  ngx-order-pipe --save
 ```
+*For Angular lower than 5 use version `1.1.3`*
 
 ## Setup
 
