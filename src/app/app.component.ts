@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { OrderPipe } from './order-pipe/ngx-order.pipe';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -46,6 +48,15 @@ export class AppComponent {
       }
     },
   ];
+
+  /**
+   * Example: Use Order pipe in the component
+   *
+   * @param {OrderPipe} orderPipe
+   */
+  constructor(private orderPipe: OrderPipe) {
+    console.log(this.orderPipe.transform(this.collection, this.order));
+  }
   
   setOrder(value: string) {
     if (this.order === value) {
