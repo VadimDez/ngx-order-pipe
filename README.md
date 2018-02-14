@@ -67,13 +67,11 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'example',
   template: `
-    <div>
-      <ul>
-        <li *ngFor="let item of array | orderBy: order">
-          {{ item.name }}
-        </li>
-      </ul>
-    </div>  
+    <ul>
+      <li *ngFor="let item of array | orderBy: order">
+        {{ item.name }}
+      </li>
+    </ul> 
   `
 })
 
