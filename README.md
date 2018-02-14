@@ -42,7 +42,7 @@ In case you're using `systemjs` - see configuration [here](https://github.com/Va
 
 Import `OrderModule` to your module
 
-```ts
+```typescript
 import { NgModule } from '@angular/core';
 import { BrowserModule  } from '@angular/platform-browser';
 import { AppComponent } from './app';
@@ -60,7 +60,7 @@ export class AppModule {}
 
 And use pipe in your component
 
-```ts
+```typescript
 import { Component } from '@angular/core';
 
 @Component({
@@ -92,6 +92,18 @@ Result:
 <div>{ prop: { list: [1, 2, 3] } }</div>
 ```
 
+### Use OrderPipe in the component
+Import `OrderPipe` to your component:
+```typescript
+import { OrderPipe } from 'ngx-order-pipe';
+```
+Add `OrderPipe` to the constructor of your component and you're ready to use it:
+
+```typescript
+constructor(private orderPipe: OrderPipe) {
+  console.log(this.orderPipe.transform(this.collection, this.order));
+}
+```
 
 ## License
 [MIT](https://tldrlegal.com/license/mit-license) © [Vadym Yatsyuk](https://github.com/vadimdez)
