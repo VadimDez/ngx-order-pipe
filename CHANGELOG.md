@@ -1,5 +1,23 @@
 # Changelog
 
+### 1.2.1
+* [[#48](https://github.com/VadimDez/ngx-order-pipe/issues/48)] - Add OrderPipe as provider in the OrderModule
+
+### Features
+#### Use OrderPipe in the component
+
+Import `OrderPipe` to your component:
+```typescript
+import { OrderPipe } from 'ngx-order-pipe';
+```
+Add `OrderPipe` to the constructor of your component and you're ready to use it:
+
+```typescript
+constructor(private orderPipe: OrderPipe) {
+  console.log(this.orderPipe.transform(this.collection, this.order));
+}
+```
+
 ### 1.2.0
 * [[#46](https://github.com/VadimDez/ngx-order-pipe/pull/46)] - Restructure
 * [[#45](https://github.com/VadimDez/ngx-order-pipe/issues/45)] - Use packagr
