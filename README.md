@@ -9,7 +9,7 @@
 
 or see code example
 
-[https://stackblitz.com/edit/angular-hmfhmx](https://stackblitz.com/edit/angular-hmfhmx?file=app%2Fapp.component.html)
+[https://stackblitz.com/edit/ngx-order-pipe](https://stackblitz.com/edit/ngx-order-pipe?embed=1&file=app/app.component.ts)
 
 ## Install
 
