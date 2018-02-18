@@ -241,11 +241,11 @@ describe('OrderPipe', () => {
   });
 
   describe('order with comparator', () => {
-    it('should return same order with "true"-comparator', () => {
+    it('should return same order with "0"-comparator', () => {
       const arr = [3, 2, 1];
 
       expect(pipe.transform(arr, null, false, true, (a, b) => {
-        return true;
+        return 0;
       })).toEqual(arr);
     });
 
