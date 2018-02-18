@@ -1,5 +1,11 @@
 # Changelog
 
+### 2.0.0
+#### Breaking changes
+* [[#52](https://github.com/VadimDez/ngx-order-pipe/issues/52)] - Value passed to transform() should not be modified.
+
+Now the value passed to pipe is not directly modified
+
 ### 1.2.1
 * [[#48](https://github.com/VadimDez/ngx-order-pipe/issues/48)] - Add OrderPipe as provider in the OrderModule
 
