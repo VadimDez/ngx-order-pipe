@@ -99,11 +99,11 @@ export class OrderPipe implements PipeTransform {
     }
     
     if (Array.isArray(value)) {
-      return this.sortArray(value, expression, reverse, isCaseInsensitive, comparator);
+      return this.sortArray(value.slice(), expression, reverse, isCaseInsensitive, comparator);
     }
     
     if (typeof value === 'object') {
-      return this.transformObject(value, expression, reverse, isCaseInsensitive, comparator);
+      return this.transformObject(Object.assign({}, value), expression, reverse, isCaseInsensitive, comparator);
     }
 
     return value;
