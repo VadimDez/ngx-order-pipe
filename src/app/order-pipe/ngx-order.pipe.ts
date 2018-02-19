@@ -98,15 +98,8 @@ export class OrderPipe implements PipeTransform {
       return value;
     }
 
-    if(Array.isArray(expression)) {
-      const expressions = <any[]>expression;
-      let transformResult = value;
-
-      expressions.reverse().forEach(splittedExpression => {
-        transformResult = this.transform(transformResult, splittedExpression, reverse, isCaseInsensitive, comparator);
-      });
-
-      return transformResult;
+    if (Array.isArray(expression)) {
+      return this.multiExpressionTransform(value, expression, reverse, isCaseInsensitive, comparator);
     }
     
     if (Array.isArray(value)) {
@@ -195,5 +188,21 @@ export class OrderPipe implements PipeTransform {
 
     OrderPipe.setValue(value, this.transform(oldValue, lastPredicate, reverse, isCaseInsensitive), parsedExpression);
     return value;
+  }
+
+  /**
+   * Apply multiple expressions
+   *
+   * @param value
+   * @param {any[]} expressions
+   * @param {boolean} reverse
+   * @param {boolean} isCaseInsensitive
+   * @param {Function} comparator
+   * @returns {any}
+   */
+  private multiExpressionTransform(value: any, expressions: any[], reverse: boolean, isCaseInsensitive: boolean = false, comparator?: Function): any {
+    return expressions.reverse().reduce((result: any, expression: any) => {
+      return this.transform(result, expression, reverse, isCaseInsensitive, comparator);
+    }, value);
   }
 }

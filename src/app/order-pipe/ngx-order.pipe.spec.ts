@@ -244,9 +244,7 @@ describe('OrderPipe', () => {
     it('should return same order with "0"-comparator', () => {
       const arr = [3, 2, 1];
 
-      expect(pipe.transform(arr, null, false, true, (a, b) => {
-        return 0;
-      })).toEqual(arr);
+      expect(pipe.transform(arr, null, false, true, () => 0)).toEqual(arr);
     });
 
     it('should change the order with custom comparator', () => {
@@ -290,19 +288,48 @@ describe('OrderPipe', () => {
     });
   });
 
-  it('should sort by multiple fields', () => {
-    const array = [
-      { name: 'qwe', age: 1 },
-      { name: 'asd', age: 3 },
-      { name: 'asd', age: 2 },
-    ];
-  
-    const result = [
-      { name: 'asd', age: 2 },
-      { name: 'asd', age: 3 },
-      { name: 'qwe', age: 1 },
-    ];
-    
-    expect(pipe.transform(array, ['name','age'])).toEqual(result);
+  describe('multi field sort', () => {
+    it('should sort by multiple fields', () => {
+      const array = [
+        { name: 'qwe', age: 1 },
+        { name: 'asd', age: 3 },
+        { name: 'asd', age: 2 },
+      ];
+
+      const result = [
+        { name: 'asd', age: 2 },
+        { name: 'asd', age: 3 },
+        { name: 'qwe', age: 1 },
+      ];
+
+      expect(pipe.transform(array, ['name','age'])).toEqual(result);
+    });
+
+    it('should keep the same order', () => {
+      const array = [
+        { name: 'q', age: 1 },
+        { name: 'a', age: 3 },
+        { name: 'a', age: 2 },
+      ];
+
+      expect(pipe.transform(array, [null])).toEqual(array);
+      expect(pipe.transform(array, [])).toEqual(array);
+    });
+
+    it('should not modify original array', () => {
+      let array = [
+        { key: 'a', value: 3 },
+        { key: 'a', value: 1 }
+      ];
+
+      const result = [
+        { key: 'a', value: 1 },
+        { key: 'a', value: 3 }
+      ];
+
+      expect(pipe.transform(array, ['key','value'])).toEqual(result);
+      expect(array[0]).toEqual({ key: 'a', value: 3 });
+      expect(array[1]).toEqual({ key: 'a', value: 1 });
+    });
   });
 });
