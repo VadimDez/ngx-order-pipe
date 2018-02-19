@@ -1,6 +1,6 @@
 {
   "name": "ngx-order-pipe",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Angular order pipe, order collection by a field",
   "scripts": {
     "ng": "ng",

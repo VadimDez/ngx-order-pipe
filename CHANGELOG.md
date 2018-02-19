@@ -1,5 +1,20 @@
 # Changelog
 
+### 2.0.1
+* [[#54](https://github.com/VadimDez/ngx-order-pipe/pull/54)] - multiple fields sorting
+* [[#14](https://github.com/VadimDez/ngx-order-pipe/issues/14)] - Multi Ordering
+
+### Feature
+Expression now accepts `string` as well as `array of strings` to perform multi order.
+
+Example, order by `name` and `age`:
+```html
+<div *ngFor="let item of items | orderBy: ['name', 'age']">
+  {{ item | json }}
+</div>
+```
+
+
 ### 2.0.0
 #### Breaking changes
 * [[#52](https://github.com/VadimDez/ngx-order-pipe/issues/52)] - Value passed to transform() should not be modified.
