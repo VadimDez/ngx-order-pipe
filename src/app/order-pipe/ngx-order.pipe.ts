@@ -97,6 +97,17 @@ export class OrderPipe implements PipeTransform {
     if (!value) {
       return value;
     }
+
+    if(Array.isArray(expression)) {
+      const expressions = <any[]>expression;
+      let transformResult = value;
+
+      expressions.reverse().forEach(splittedExpression => {
+        transformResult = this.transform(transformResult, splittedExpression, reverse, isCaseInsensitive, comparator);
+      });
+
+      return transformResult;
+    }
     
     if (Array.isArray(value)) {
       return this.sortArray(value.slice(), expression, reverse, isCaseInsensitive, comparator);
