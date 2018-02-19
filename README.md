@@ -36,7 +36,7 @@ In case you're using `systemjs` - see configuration [here](https://github.com/Va
 | Param | Type | Default | Details |
 | --- | --- | --- | --- |
 | collection | `array` or `object` | | The collection or object to sort |
-| expression  | `string` | | The key to determinate order |
+| expression  | `string array` or `string` | | The collection of keys or key to determinate order |
 | reverse *(optional)* | `boolean`| false | Reverse sorting order |
 | caseInsensitive *(optional)* | `boolean`| false | Case insensitive compare for sorting |
 | comparator *(optional)* | `Function`|  | Custom comparator function to determine order of value pairs. Example: `(a, b) => { return a > b ? 1 : -1; }` [`See how to use comparator`](https://github.com/VadimDez/ngx-order-pipe/issues/39) |
