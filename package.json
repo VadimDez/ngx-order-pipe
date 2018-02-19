@@ -10,7 +10,8 @@
     "test:w": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "packagr": "ng-packagr -p ng-package.json"
+    "packagr": "ng-packagr -p ng-package.json",
+    "docs": "ng build --prod --output-path docs --base-href ngx-order-pipe && cp ./docs/index.html ./docs/404.html"
   },
   "repository": {
     "type": "git",
