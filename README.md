@@ -100,7 +100,7 @@ Add `OrderPipe` to the constructor of your component and you're ready to use it:
 
 ```typescript
 constructor(private orderPipe: OrderPipe) {
-  console.log(this.orderPipe.transform(this.array, this.order));
+  console.log(this.orderPipe.transform(this.array, this.order)); // both this.array and this.order are from above example AppComponent
 }
 ```
 
