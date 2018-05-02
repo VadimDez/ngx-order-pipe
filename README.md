@@ -104,5 +104,22 @@ constructor(private orderPipe: OrderPipe) {
 }
 ```
 
+### Case insensative / Case sensative
+Case insensative flag is the *third* parameter passed to the pipe. Can be `true` to make comparison *case insensative* and `false` to make comparison case sensative.
+By default value is set to false.
+
+* Make case insensative order (Third parameter is `true`)
+```
+<li *ngFor="let item of array | orderBy: order : false : true">
+  {{ item.name }}
+</li>
+```
+* Switching third parameter to `false` will do case sensative comparison to order collection:
+```
+<li *ngFor="let item of array | orderBy: order : false : false">
+  {{ item.name }}
+</li>
+```
+
 ## License
 [MIT](https://tldrlegal.com/license/mit-license) © [Vadym Yatsyuk](https://github.com/vadimdez)
