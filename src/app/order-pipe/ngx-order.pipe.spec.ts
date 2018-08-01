@@ -327,9 +327,36 @@ describe('OrderPipe', () => {
         { key: 'a', value: 3 }
       ];
 
-      expect(pipe.transform(array, ['key','value'])).toEqual(result);
+      expect(pipe.transform(array, ['key', 'value'])).toEqual(result);
       expect(array[0]).toEqual({ key: 'a', value: 3 });
       expect(array[1]).toEqual({ key: 'a', value: 1 });
     });
+  });
+
+
+
+  it('should keep same order', function () {
+    const collection = [
+      {
+        'name': 'John',
+        'age' : '25',
+        'score': 12,
+        'percent': '5.2%'
+      },
+      {
+        'name': 'Mark',
+        'age' : '19',
+        'score': 12,
+        'percent': 'No Value'
+      },
+      {
+        'name': 'Peter',
+        'age' : '21',
+        'score': 12,
+        'percent': '1.8%'
+      }
+    ];
+
+    expect(pipe.transform(collection, 'score')).toEqual(collection);
   });
 });
