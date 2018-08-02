@@ -227,7 +227,7 @@ describe('OrderPipe', () => {
       const el2 = '10';
       const arr = [el2, el1];
       const res = [el1, el2];
-  
+
       expect(pipe.transform(arr)).toEqual(res);
     });
 
@@ -260,7 +260,7 @@ describe('OrderPipe', () => {
       const arr = ['$10,0', '$2,0', '$100,0'];
       const res = ['$2,0', '$10,0', '$100,0'];
 
-      const parse = value => parseInt(value.replace(/[^0-9]/g, ''));
+      const parse = value => parseInt(value.replace(/[^0-9]/g, ''), 10);
 
       expect(pipe.transform(arr, null, false, true, (a, b) => {
         const newA = parse(a);
@@ -272,11 +272,11 @@ describe('OrderPipe', () => {
     describe('test not valid values for comparator', () => {
       const arr = [3, 2, 1];
       const res = [1, 2, 3];
-      
+
       it('should still work if comparator is null', () => {
         expect(pipe.transform(arr, null, false, true, null)).toEqual(res);
       });
-      
+
       it('should still work if comparator is undefined', () => {
         expect(pipe.transform(arr, null, false, true, undefined)).toEqual(res);
         expect(pipe.transform(arr, null, false, true, void 0)).toEqual(res);
@@ -302,7 +302,7 @@ describe('OrderPipe', () => {
         { name: 'qwe', age: 1 },
       ];
 
-      expect(pipe.transform(array, ['name','age'])).toEqual(result);
+      expect(pipe.transform(array, ['name', 'age'])).toEqual(result);
     });
 
     it('should keep the same order', () => {
@@ -317,7 +317,7 @@ describe('OrderPipe', () => {
     });
 
     it('should not modify original array', () => {
-      let array = [
+      const array = [
         { key: 'a', value: 3 },
         { key: 'a', value: 1 }
       ];
