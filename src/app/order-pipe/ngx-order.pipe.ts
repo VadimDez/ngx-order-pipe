@@ -30,9 +30,9 @@ export class OrderPipe implements PipeTransform {
 
   /**
    * Default compare method
-   * 
-   * @param a 
-   * @param b 
+   *
+   * @param a
+   * @param b
    */
   static defaultCompare(a: any, b: any) {
     if (a === b) {
@@ -101,11 +101,11 @@ export class OrderPipe implements PipeTransform {
     if (Array.isArray(expression)) {
       return this.multiExpressionTransform(value, expression, reverse, isCaseInsensitive, comparator);
     }
-    
+
     if (Array.isArray(value)) {
       return this.sortArray(value.slice(), expression, reverse, isCaseInsensitive, comparator);
     }
-    
+
     if (typeof value === 'object') {
       return this.transformObject(Object.assign({}, value), expression, reverse, isCaseInsensitive, comparator);
     }
@@ -131,13 +131,13 @@ export class OrderPipe implements PipeTransform {
     }
 
     let compareFn: Function;
-    
+
     if (comparator && typeof comparator === 'function') {
       compareFn = comparator;
     } else {
       compareFn = isCaseInsensitive ? OrderPipe.caseInsensitiveSort : OrderPipe.defaultCompare;
     }
-    
+
     let array: any[] = value.sort((a: any, b: any): number => {
       if (!expression) {
         return compareFn(a, b);
@@ -149,7 +149,7 @@ export class OrderPipe implements PipeTransform {
         }
         return compareFn(a, b);
       }
-      
+
       return compareFn(OrderPipe.getValue(a, expression), OrderPipe.getValue(b, expression));
     });
 
