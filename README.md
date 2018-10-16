@@ -109,13 +109,13 @@ Case insensative flag is the *third* parameter passed to the pipe. Can be `true`
 By default value is set to false.
 
 * Make case insensative order (Third parameter is `true`)
-```
+```html
 <li *ngFor="let item of array | orderBy: order : false : true">
   {{ item.name }}
 </li>
 ```
 * Switching third parameter to `false` will do case sensative comparison to order collection:
-```
+```html
 <li *ngFor="let item of array | orderBy: order : false : false">
   {{ item.name }}
 </li>
