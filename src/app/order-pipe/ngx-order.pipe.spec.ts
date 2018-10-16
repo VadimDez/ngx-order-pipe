@@ -333,7 +333,22 @@ describe('OrderPipe', () => {
     });
   });
 
+  describe('sort booleans', () => {
+    it('should return same simple false array', () => {
+      const array = [{ value: false }];
+      expect(pipe.transform(array, 'value')).toEqual(array);
+    });
 
+    it('should return same simple true array', () => {
+      const array = [{ value: true }];
+      expect(pipe.transform(array, 'value')).toEqual(array);
+    });
+
+    it('should sort booleans', () => {
+      const array = [{ value: false }, { value: true }];
+      expect(pipe.transform(array, 'value')).toEqual(array);
+    });
+  });
 
   it('should keep same order', function () {
     const collection = [
