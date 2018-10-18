@@ -138,7 +138,7 @@ export class OrderPipe implements PipeTransform {
       compareFn = isCaseInsensitive ? OrderPipe.caseInsensitiveSort : OrderPipe.defaultCompare;
     }
 
-    let array: any[] = value.sort((a: any, b: any): number => {
+    const array: any[] = value.sort((a: any, b: any): number => {
       if (!expression) {
         return compareFn(a, b);
       }
