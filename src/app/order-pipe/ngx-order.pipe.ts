@@ -170,8 +170,13 @@ export class OrderPipe implements PipeTransform {
    * @param comparator
    * @returns {any[]}
    */
-  private transformObject(value: any | any[], expression?: any, reverse?: boolean, isCaseInsensitive?: boolean, comparator?: Function): any {
-
+  private transformObject(
+    value: any | any[],
+    expression?: any,
+    reverse?: boolean,
+    isCaseInsensitive?: boolean,
+    comparator?: Function
+  ): any {
     let parsedExpression = OrderPipe.parseExpression(expression);
     let lastPredicate = parsedExpression.pop();
     let oldValue = OrderPipe.getValue(value, parsedExpression);
