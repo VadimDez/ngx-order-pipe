@@ -104,17 +104,17 @@ constructor(private orderPipe: OrderPipe) {
 }
 ```
 
-### Case insensative / Case sensative
-Case insensative flag is the *third* parameter passed to the pipe. Can be `true` to make comparison *case insensative* and `false` to make comparison case sensative.
+### Case insensitive / Case sensitive
+Case insensitive flag is the *third* parameter passed to the pipe. Can be `true` to make comparison *case insensitive* and `false` to make comparison case sensitive.
 By default value is set to false.
 
-* Make case insensative order (Third parameter is `true`)
+* Make case insensitive order (Third parameter is `true`)
 ```html
 <li *ngFor="let item of array | orderBy: order : false : true">
   {{ item.name }}
 </li>
 ```
-* Switching third parameter to `false` will do case sensative comparison to order collection:
+* Switching third parameter to `false` will do case sensitive comparison to order collection:
 ```html
 <li *ngFor="let item of array | orderBy: order : false : false">
   {{ item.name }}
