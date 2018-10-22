@@ -177,7 +177,7 @@ export class OrderPipe implements PipeTransform {
     isCaseInsensitive?: boolean,
     comparator?: Function
   ): any {
-    let parsedExpression = OrderPipe.parseExpression(expression);
+    const parsedExpression = OrderPipe.parseExpression(expression);
     let lastPredicate = parsedExpression.pop();
     let oldValue = OrderPipe.getValue(value, parsedExpression);
 
