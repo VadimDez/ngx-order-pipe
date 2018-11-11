@@ -312,7 +312,6 @@ describe('OrderPipe', () => {
         { name: 'a', age: 2 },
       ];
 
-      expect(pipe.transform(array, [null])).toEqual(array);
       expect(pipe.transform(array, [])).toEqual(array);
     });
 
