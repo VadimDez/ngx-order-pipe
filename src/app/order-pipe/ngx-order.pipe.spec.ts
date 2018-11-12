@@ -305,6 +305,42 @@ describe('OrderPipe', () => {
       expect(pipe.transform(array, ['name', 'age'])).toEqual(result);
     });
 
+    describe('preserve sorting order', () => {
+      const array = [
+        { group: 1, value: 2 },
+        { group: 1, value: 1 },
+        { group: 3, value: 1 },
+        { group: 2, value: 2 },
+        { group: 2, value: 1 },
+      ];
+
+      it('should sort by multiple fields and preserve priority', () => {
+        const result = [
+          { group: 1, value: 1 },
+          { group: 1, value: 2 },
+          { group: 2, value: 1 },
+          { group: 2, value: 2 },
+          { group: 3, value: 1 }
+        ];
+
+        expect(pipe.transform(array, ['group', 'value'])).toEqual(result);
+      });
+
+      it('should sort by multiple fields and preserve priority (reversed)', () => {
+        const result = [
+          { group: 1, value: 1 },
+          { group: 2, value: 1 },
+          { group: 3, value: 1 },
+          { group: 1, value: 2 },
+          { group: 2, value: 2 }
+        ];
+
+        expect(pipe.transform(array, ['value', 'group'])).toEqual(result);
+      });
+
+    });
+
+
     it('should keep the same order', () => {
       const array = [
         { name: 'q', age: 1 },
