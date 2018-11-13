@@ -16,35 +16,50 @@ export class AppComponent {
       info: {
         name: 'john',
         number: '555-1212',
-        age: 10
+        age: 10,
+        isBeOfAge: function () {
+          return this.age >= 21;
+        }
       }
     }, {
       id: 5,
       info: {
         name: 'Mary',
         number: '555-9876',
-        age: 19
+        age: 19,
+        isBeOfAge: function () {
+          return this.age >= 21;
+        }
       }
     }, {
       id: 2,
       info: {
         name: 'Mike',
         number: '555-4321',
-        age: 21
+        age: 21,
+        isBeOfAge: function () {
+          return this.age >= 21;
+        }
       }
     }, {
       id: 3,
       info: {
         name: 'Julie',
         number: '555-8765',
-        age: 29
+        age: 29,
+        isBeOfAge: function () {
+          return this.age >= 21;
+        }
       }
     }, {
       id: 4,
       info: {
         name: 'Adam',
         number: '555-5678',
-        age: 35
+        age: 35,
+        isBeOfAge: function () {
+          return this.age >= 21;
+        }
       }
     },
   ];
