@@ -54,7 +54,7 @@
                   <th [class.active]="order === 'info.age'" (click)="setOrder('info.age')">
                     Age <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
                   </th>
-                  <th [class.active]="order === 'info.isBeOfAge'" (click)="setOrder('info.isBeOfAge')">
+                  <th [class.active]="order === 'info.isAdult'" (click)="setOrder('info.isAdult')">
                     Is be of age ? <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
                   </th>
                 </tr>
@@ -65,7 +65,7 @@
                   <td class="mdl-data-table__cell--non-numeric">{{ row.info.name }}</td>
                   <td>{{ row.info.number }}</td>
                   <td>{{ row.info.age }}</td>
-                  <td>{{ row.info.isBeOfAge() }}</td>
+                  <td>{{ row.info.isAdult() }}</td>
                 </tr>
                 </tbody>
               </table>

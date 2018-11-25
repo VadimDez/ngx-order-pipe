@@ -17,7 +17,7 @@ export class AppComponent {
         name: 'john',
         number: '555-1212',
         age: 10,
-        isBeOfAge: function () {
+        isAdult: function () {
           return this.age >= 21;
         }
       }
@@ -27,7 +27,7 @@ export class AppComponent {
         name: 'Mary',
         number: '555-9876',
         age: 19,
-        isBeOfAge: function () {
+        isAdult: function () {
           return this.age >= 21;
         }
       }
@@ -37,7 +37,7 @@ export class AppComponent {
         name: 'Mike',
         number: '555-4321',
         age: 21,
-        isBeOfAge: function () {
+        isAdult: function () {
           return this.age >= 21;
         }
       }
@@ -47,7 +47,7 @@ export class AppComponent {
         name: 'Julie',
         number: '555-8765',
         age: 29,
-        isBeOfAge: function () {
+        isAdult: function () {
           return this.age >= 21;
         }
       }
@@ -57,7 +57,7 @@ export class AppComponent {
         name: 'Adam',
         number: '555-5678',
         age: 35,
-        isBeOfAge: function () {
+        isAdult: function () {
           return this.age >= 21;
         }
       }
