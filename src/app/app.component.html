@@ -1,90 +1,116 @@
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--no-drawer-button">
+<div
+  class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--no-drawer-button"
+>
   <header class="mdl-layout__header">
     <div class="mdl-layout__header-row">
       <span class="mdl-layout-title">ngx-order-pipe</span>
-      
+
       <div class="mdl-layout-spacer"></div>
-      
+
       <span>
-        <iframe src="https://ghbtns.com/github-btn.html?user=vadimdez&repo=ngx-order-pipe&type=star&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe>
+        <iframe
+          src="https://ghbtns.com/github-btn.html?user=vadimdez&repo=ngx-order-pipe&type=star&count=true"
+          frameborder="0"
+          scrolling="0"
+          width="170px"
+          height="20px"
+        ></iframe>
       </span>
     </div>
   </header>
 
   <main class="mdl-layout__content">
     <div class="page-content">
-
       <div class="mdl-grid">
-        <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-desktop mdl-cell--2-offset-desktop mdl-cell--12-col-tablet mdl-cell--12-col-phone">
+        <div
+          class="mdl-cell mdl-cell--6-col mdl-cell--8-col-desktop mdl-cell--2-offset-desktop mdl-cell--12-col-tablet mdl-cell--12-col-phone"
+        >
           <h2>Angular 5+ order pipe</h2>
-          <p class="short-description">
-            Order your collection by a field
-          </p>
-          
-          <p>
-            <a href="https://github.com/VadimDez/ngx-order-pipe">Read more on GitHub</a>
-          </p>
+          <p class="short-description">Order your collection by a field</p>
 
           <p>
-            Press on the label to re-order table
+            <a href="https://github.com/VadimDez/ngx-order-pipe"
+              >Read more on GitHub</a
+            >
           </p>
+
+          <p>Press on the label to re-order table</p>
 
           <div class="mdl-grid mdl-grid--no-spacing">
-            <div class="mdl-cell mdl-cell--6-col mdl-cell--6-col-desktop mdl-cell--4-col-tablet mdl-cell--12-col-phone">
+            <div
+              class="mdl-cell mdl-cell--6-col mdl-cell--6-col-desktop mdl-cell--4-col-tablet mdl-cell--12-col-phone"
+            >
               <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
                 <thead>
-                <tr>
-                  <th [class.active]="order === 'id'"
+                  <tr>
+                    <th
+                      [class.active]="order === 'id'"
                       (click)="setOrder('id')"
                       class="mdl-data-table__cell--non-numeric"
-                  >
-                    ID <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
-                  </th>
-                  <th [class.active]="order === 'info.name'"
+                    >
+                      ID <span [hidden]="reverse">▼</span
+                      ><span [hidden]="!reverse">▲</span>
+                    </th>
+                    <th
+                      [class.active]="order === 'info.name'"
                       (click)="setOrder('info.name')"
                       class="mdl-data-table__cell--non-numeric"
-                  >
-                    Name <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
-                  </th>
-                  <th [class.active]="order === 'info.number'"
+                    >
+                      Name <span [hidden]="reverse">▼</span
+                      ><span [hidden]="!reverse">▲</span>
+                    </th>
+                    <th
+                      [class.active]="order === 'info.number'"
                       (click)="setOrder('info.number')"
-                  >
-                    Phone number <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
-                  </th>
-                  <th [class.active]="order === 'info.age'" (click)="setOrder('info.age')">
-                    Age <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
-                  </th>
-                  <th [class.active]="order === 'info.isAdult'" (click)="setOrder('info.isAdult')">
-                    Is be of age ? <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
-                  </th>
-                </tr>
+                    >
+                      Phone number <span [hidden]="reverse">▼</span
+                      ><span [hidden]="!reverse">▲</span>
+                    </th>
+                    <th
+                      [class.active]="order === 'info.age'"
+                      (click)="setOrder('info.age')"
+                    >
+                      Age <span [hidden]="reverse">▼</span
+                      ><span [hidden]="!reverse">▲</span>
+                    </th>
+                    <th
+                      [class.active]="order === 'info.isAdult'"
+                      (click)="setOrder('info.isAdult')"
+                    >
+                      Is adult ? <span [hidden]="reverse">▼</span
+                      ><span [hidden]="!reverse">▲</span>
+                    </th>
+                  </tr>
                 </thead>
                 <tbody>
-                <tr *ngFor="let row of collection | orderBy: order:reverse:'case-insensitive'">
-                  <td>{{ row.id }}</td>
-                  <td class="mdl-data-table__cell--non-numeric">{{ row.info.name }}</td>
-                  <td>{{ row.info.number }}</td>
-                  <td>{{ row.info.age }}</td>
-                  <td>{{ row.info.isAdult() }}</td>
-                </tr>
+                  <tr
+                    *ngFor="
+                      let row of (collection
+                        | orderBy: order:reverse:'case-insensitive')
+                    "
+                  >
+                    <td>{{ row.id }}</td>
+                    <td class="mdl-data-table__cell--non-numeric">
+                      {{ row.info.name }}
+                    </td>
+                    <td>{{ row.info.number }}</td>
+                    <td>{{ row.info.age }}</td>
+                    <td>{{ row.info.isAdult() }}</td>
+                  </tr>
                 </tbody>
               </table>
             </div>
-            <div class="mdl-cell mdl-cell--6-col mdl-cell--6-col-desktop mdl-cell--4-col-tablet mdl-cell--12-col-phone">
+            <div
+              class="mdl-cell mdl-cell--6-col mdl-cell--6-col-desktop mdl-cell--4-col-tablet mdl-cell--12-col-phone"
+            >
               <h5>Pipe</h5>
-              <p>
-                orderBy: "{{ order }}":{{ reverse}}
-              </p>
+              <p>orderBy: "{{ order }}":{{ reverse }}</p>
               <h5>Collection</h5>
-              <p>
-                {{ collection | json }}
-              </p>
+              <p>{{ collection | json }}</p>
             </div>
           </div>
-
         </div>
       </div>
-
     </div>
   </main>
 
