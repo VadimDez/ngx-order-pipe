@@ -41,6 +41,8 @@ In case you're using `systemjs` - see configuration [here](https://github.com/Va
 | caseInsensitive *(optional)* | `boolean`| false | Case insensitive compare for sorting |
 | comparator *(optional)* | `Function`|  | Custom comparator function to determine order of value pairs. Example: `(a, b) => { return a > b ? 1 : -1; }` [`See how to use comparator`](https://github.com/VadimDez/ngx-order-pipe/issues/39) |
 
+<br/>
+
 Import `OrderModule` to your module
 
 ```typescript
