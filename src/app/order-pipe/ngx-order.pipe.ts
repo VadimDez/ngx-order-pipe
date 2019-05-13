@@ -210,7 +210,7 @@ export class OrderPipe implements PipeTransform {
    * @returns {any}
    */
   private multiExpressionTransform(value: any, expressions: any[], reverse: boolean, isCaseInsensitive: boolean = false, comparator?: Function): any {
-    return expressions.reverse().reduce((result: any, expression: any) => {
+    return expressions.reduce((result: any, expression: any) => {
       return this.transform(result, expression, reverse, isCaseInsensitive, comparator);
     }, value);
   }
