@@ -1,5 +1,9 @@
 # Changelog
 
+### 2.0.3
+
+- [[#82](https://github.com/VadimDez/ngx-order-pipe/issues/82)] - Upgrade to Angular 8
+
 ### 2.0.2
 
 - [[#79](https://github.com/VadimDez/ngx-order-pipe/pull/79)] - feature: support for callable function attribute on data source
