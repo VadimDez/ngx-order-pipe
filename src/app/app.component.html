@@ -2,11 +2,12 @@
   <header class="mdl-layout__header">
     <div class="mdl-layout__header-row">
       <span class="mdl-layout-title">ngx-order-pipe</span>
-      
+
       <div class="mdl-layout-spacer"></div>
-      
+
       <span>
-        <iframe src="https://ghbtns.com/github-btn.html?user=vadimdez&repo=ngx-order-pipe&type=star&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe>
+        <iframe src="https://ghbtns.com/github-btn.html?user=vadimdez&repo=ngx-order-pipe&type=star&count=true"
+          frameborder="0" scrolling="0" width="170px" height="20px"></iframe>
       </span>
     </div>
   </header>
@@ -15,12 +16,13 @@
     <div class="page-content">
 
       <div class="mdl-grid">
-        <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-desktop mdl-cell--2-offset-desktop mdl-cell--12-col-tablet mdl-cell--12-col-phone">
+        <div
+          class="mdl-cell mdl-cell--6-col mdl-cell--8-col-desktop mdl-cell--2-offset-desktop mdl-cell--12-col-tablet mdl-cell--12-col-phone">
           <h2>Angular 5+ order pipe</h2>
           <p class="short-description">
             Order your collection by a field
           </p>
-          
+
           <p>
             <a href="https://github.com/VadimDez/ngx-order-pipe">Read more on GitHub</a>
           </p>
@@ -33,36 +35,30 @@
             <div class="mdl-cell mdl-cell--6-col mdl-cell--6-col-desktop mdl-cell--4-col-tablet mdl-cell--12-col-phone">
               <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
                 <thead>
-                <tr>
-                  <th [class.active]="order === 'id'"
-                      (click)="setOrder('id')"
-                      class="mdl-data-table__cell--non-numeric"
-                  >
-                    ID <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
-                  </th>
-                  <th [class.active]="order === 'info.name'"
-                      (click)="setOrder('info.name')"
-                      class="mdl-data-table__cell--non-numeric"
-                  >
-                    Name <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
-                  </th>
-                  <th [class.active]="order === 'info.number'"
-                      (click)="setOrder('info.number')"
-                  >
-                    Phone number <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
-                  </th>
-                  <th [class.active]="order === 'info.age'" (click)="setOrder('info.age')">
-                    Age <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
-                  </th>
-                </tr>
+                  <tr>
+                    <th [class.active]="order === 'id'" (click)="setOrder('id')"
+                      class="mdl-data-table__cell--non-numeric">
+                      ID <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+                    </th>
+                    <th [class.active]="order === 'info.name'" (click)="setOrder('info.name')"
+                      class="mdl-data-table__cell--non-numeric">
+                      Name <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+                    </th>
+                    <th [class.active]="order === 'info.number'" (click)="setOrder('info.number')">
+                      Phone number <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+                    </th>
+                    <th [class.active]="order === 'info.age'" (click)="setOrder('info.age')">
+                      Age <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+                    </th>
+                  </tr>
                 </thead>
                 <tbody>
-                <tr *ngFor="let row of collection | orderBy: order:reverse:'case-insensitive'">
-                  <td>{{ row.id }}</td>
-                  <td class="mdl-data-table__cell--non-numeric">{{ row.info.name }}</td>
-                  <td>{{ row.info.number }}</td>
-                  <td>{{ row.info.age }}</td>
-                </tr>
+                  <tr *ngFor="let row of collection | orderBy: order:reverse:'case-insensitive'">
+                    <td>{{ row.id }}</td>
+                    <td class="mdl-data-table__cell--non-numeric">{{ row.info.name }}</td>
+                    <td>{{ row.info.number }}</td>
+                    <td>{{ row.info.age }}</td>
+                  </tr>
                 </tbody>
               </table>
             </div>
