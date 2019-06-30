@@ -71,7 +71,11 @@ export class OrderPipe implements PipeTransform {
       if (!(k in object)) {
         return;
       }
-      object = object[k];
+      if (typeof object[k] === 'function') {
+        object = object[k]();
+      } else {
+        object = object[k];
+      }
     }
 
     return object;

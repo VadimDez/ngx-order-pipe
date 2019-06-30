@@ -14,7 +14,6 @@
 
   <main class="mdl-layout__content">
     <div class="page-content">
-
       <div class="mdl-grid">
         <div
           class="mdl-cell mdl-cell--6-col mdl-cell--8-col-desktop mdl-cell--2-offset-desktop mdl-cell--12-col-tablet mdl-cell--12-col-phone">
@@ -27,15 +26,14 @@
             <a href="https://github.com/VadimDez/ngx-order-pipe">Read more on GitHub</a>
           </p>
 
-          <p>
-            Press on the label to re-order table
-          </p>
+          <p>Press on the label to re-order table</p>
 
           <div class="mdl-grid mdl-grid--no-spacing">
             <div class="mdl-cell mdl-cell--6-col mdl-cell--6-col-desktop mdl-cell--4-col-tablet mdl-cell--12-col-phone">
               <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
                 <thead>
                   <tr>
+
                     <th [class.active]="order === 'id'" (click)="setOrder('id')"
                       class="mdl-data-table__cell--non-numeric">
                       ID <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
@@ -50,6 +48,9 @@
                     <th [class.active]="order === 'info.age'" (click)="setOrder('info.age')">
                       Age <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
                     </th>
+                    <th [class.active]="order === 'info.isAdult'" (click)="setOrder('info.isAdult')">
+                      Is adult ? <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
@@ -58,25 +59,20 @@
                     <td class="mdl-data-table__cell--non-numeric">{{ row.info.name }}</td>
                     <td>{{ row.info.number }}</td>
                     <td>{{ row.info.age }}</td>
+                    <td>{{ row.info.isAdult() }}</td>
                   </tr>
                 </tbody>
               </table>
             </div>
             <div class="mdl-cell mdl-cell--6-col mdl-cell--6-col-desktop mdl-cell--4-col-tablet mdl-cell--12-col-phone">
               <h5>Pipe</h5>
-              <p>
-                orderBy: "{{ order }}":{{ reverse}}
-              </p>
+              <p>orderBy: "{{ order }}":{{ reverse }}</p>
               <h5>Collection</h5>
-              <p>
-                {{ collection | json }}
-              </p>
+              <p>{{ collection | json }}</p>
             </div>
           </div>
-
         </div>
       </div>
-
     </div>
   </main>
 

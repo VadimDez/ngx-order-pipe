@@ -1,4 +1,6 @@
-# Angular 5+ Order Pipe [![Build Status](https://travis-ci.org/VadimDez/ngx-order-pipe.svg?branch=master)](https://travis-ci.org/VadimDez/ngx-order-pipe) ![https://www.npmjs.com/package/ng2-order-pipe](https://img.shields.io/npm/dm/ng2-order-pipe.svg?style=flat) ![https://www.npmjs.com/package/ngx-order-pipe](https://img.shields.io/npm/dm/ngx-order-pipe.svg?style=flat) [![DeepScan Grade](https://deepscan.io/api/projects/1752/branches/7519/badge/grade.svg)](https://deepscan.io/dashboard/#view=project&pid=1752&bid=7519)
+# Angular 5+ Order Pipe
+
+![https://www.npmjs.com/package/ngx-order-pipe](https://img.shields.io/npm/dm/ngx-order-pipe.svg?style=flat) ![https://www.npmjs.com/package/ng2-order-pipe](https://img.shields.io/npm/dm/ng2-order-pipe.svg?style=flat) [![Build Status](https://travis-ci.org/VadimDez/ngx-order-pipe.svg?branch=master)](https://travis-ci.org/VadimDez/ngx-order-pipe) [![DeepScan Grade](https://deepscan.io/api/projects/1752/branches/7519/badge/grade.svg)](https://deepscan.io/dashboard/#view=project&pid=1752&bid=7519)
 
 > Order your collection by a field
 
@@ -40,6 +42,8 @@ In case you're using `systemjs` - see configuration [here](https://github.com/Va
 | reverse *(optional)* | `boolean`| false | Reverse sorting order |
 | caseInsensitive *(optional)* | `boolean`| false | Case insensitive compare for sorting |
 | comparator *(optional)* | `Function`|  | Custom comparator function to determine order of value pairs. Example: `(a, b) => { return a > b ? 1 : -1; }` [`See how to use comparator`](https://github.com/VadimDez/ngx-order-pipe/issues/39) |
+
+<br/>
 
 Import `OrderModule` to your module
 

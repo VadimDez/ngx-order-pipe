@@ -16,7 +16,10 @@ export class AppComponent {
       info: {
         name: "john",
         number: "555-1212",
-        age: 10
+        age: 10,
+        isAdult: function() {
+          return this.age >= 21;
+        }
       }
     },
     {
@@ -24,7 +27,10 @@ export class AppComponent {
       info: {
         name: "Mary",
         number: "555-9876",
-        age: 19
+        age: 19,
+        isAdult: function() {
+          return this.age >= 21;
+        }
       }
     },
     {
@@ -32,7 +38,10 @@ export class AppComponent {
       info: {
         name: "Mike",
         number: "555-4321",
-        age: 21
+        age: 21,
+        isAdult: function() {
+          return this.age >= 21;
+        }
       }
     },
     {
@@ -40,7 +49,10 @@ export class AppComponent {
       info: {
         name: "Julie",
         number: "555-8765",
-        age: 29
+        age: 29,
+        isAdult: function() {
+          return this.age >= 21;
+        }
       }
     },
     {
@@ -48,7 +60,10 @@ export class AppComponent {
       info: {
         name: "Adam",
         number: "555-5678",
-        age: 35
+        age: 35,
+        isAdult: function() {
+          return this.age >= 21;
+        }
       }
     }
   ];
