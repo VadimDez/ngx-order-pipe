@@ -67,6 +67,9 @@ export class OrderPipe implements PipeTransform {
    */
   static getValue(object: any, expression: string[]) {
     for (let i = 0, n = expression.length; i < n; ++i) {
+      if( !object ){
+        return;
+      }
       const k = expression[i];
       if (!(k in object)) {
         return;
