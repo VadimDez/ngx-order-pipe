@@ -1,5 +1,9 @@
 # Changelog
 
+### 2.0.4
+
+- [[#87](https://github.com/VadimDez/ngx-order-pipe/pull/87)] - fix error when expression point on sub-property of an undefined object
+
 ### 2.0.3
 
 - [[#82](https://github.com/VadimDez/ngx-order-pipe/issues/82)] - Upgrade to Angular 8
