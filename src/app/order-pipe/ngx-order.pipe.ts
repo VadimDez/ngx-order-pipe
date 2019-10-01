@@ -120,25 +120,27 @@ export class OrderPipe implements PipeTransform {
         comparator
       );
     }
-
-    if (Array.isArray(value)) {
-      return this.sortArray(
-        value.slice(),
-        expression,
-        reverse,
-        isCaseInsensitive,
-        comparator
-      );
-    }
-
+    // 'typeof' of array too will be 'object'. Hence I have wrapped the array check inside the object block
     if (typeof value === "object") {
-      return this.transformObject(
-        Object.assign({}, value),
-        expression,
-        reverse,
-        isCaseInsensitive,
-        comparator
-      );
+      // It is for array
+      if (Array.isArray(value)) {
+        return this.sortArray(
+          value.slice(),
+          expression,
+          reverse,
+          isCaseInsensitive,
+          comparator
+        );
+      } else {
+        // Here it is for object
+        return this.transformObject(
+          Object.assign({}, value),
+          expression,
+          reverse,
+          isCaseInsensitive,
+          comparator
+        );
+      }
     }
 
     return value;
