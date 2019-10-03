@@ -1,6 +1,6 @@
 import { TestBed, async } from "@angular/core/testing";
 import { AppComponent } from "./app.component";
-import { OrderModule } from "./order-pipe/ngx-order.module";
+import { OrderModule } from "./order-pipe/ngx-order.pipe";
 
 describe("AppComponent", () => {
   beforeEach(async(() => {
