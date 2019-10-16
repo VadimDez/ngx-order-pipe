@@ -409,4 +409,20 @@ describe("OrderPipe", () => {
 
     expect(pipe.transform(collection, "a.b")).toEqual(result);
   });
+
+  describe("Dates", () => {
+    it("should sort dates", () => {
+      const a = { id: 1, info: { date: new Date(1980, 12, 31, 0, 0, 0, 0) } };
+      const b = { id: 2, info: { date: new Date(1985, 8, 3, 0, 0, 0, 0) } };
+      const c = { id: 3, info: { date: new Date(1978, 10, 12, 0, 0, 0, 0) } };
+      const collection = [a, b, c];
+
+      const result = [c, a, b];
+
+      expect(pipe.transform(collection, "info.date")).toEqual(result);
+      expect(pipe.transform(collection, "info.date", true)).toEqual(
+        result.reverse()
+      );
+    });
+  });
 });
