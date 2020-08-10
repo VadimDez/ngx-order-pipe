@@ -411,8 +411,18 @@ describe("OrderPipe", () => {
   });
 
   describe("Dates", () => {
+    it("should sort different dates", () => {
+      const a = { createdAt: new Date(1980, 11, 1, 0, 0, 0, 0) };
+      const b = { createdAt: new Date(1980, 8, 2, 0, 0, 0, 0) };
+      const c = { createdAt: new Date(1980, 10, 3, 0, 0, 0, 0) };
+      const collection = [a, b, c];
+      const result = [b, c, a];
+
+      expect(pipe.transform(collection, "createdAt")).toEqual(result);
+    });
+
     it("should sort dates", () => {
-      const a = { id: 1, info: { date: new Date(1980, 12, 31, 0, 0, 0, 0) } };
+      const a = { id: 1, info: { date: new Date(1980, 11, 31, 0, 0, 0, 0) } };
       const b = { id: 2, info: { date: new Date(1985, 8, 3, 0, 0, 0, 0) } };
       const c = { id: 3, info: { date: new Date(1978, 10, 12, 0, 0, 0, 0) } };
       const collection = [a, b, c];
@@ -423,6 +433,49 @@ describe("OrderPipe", () => {
       expect(pipe.transform(collection, "info.date", true)).toEqual(
         result.reverse()
       );
+    });
+
+    describe("multisort with dates", () => {
+      it("should sort dates equal dates", () => {
+        const a = {
+          info: { name: "Adam", date: new Date(1978, 10, 12, 0, 0, 0, 0) },
+        };
+        const b = {
+          info: { name: "Julie", date: new Date(1978, 10, 12, 0, 0, 0, 0) },
+        };
+        const collection = [b, a];
+
+        const result = [a, b];
+
+        expect(pipe.transform(collection, ["info.date", "info.name"])).toEqual(
+          result
+        );
+        expect(
+          pipe.transform(collection, ["info.date", "info.name"], true)
+        ).toEqual(result);
+      });
+
+      it("should sort dates different dates", () => {
+        const a = {
+          info: { name: "Adam", date: new Date(1970, 10, 12, 0, 0, 0, 0) },
+        };
+        const b = {
+          info: { name: "Julie", date: new Date(1970, 11, 15, 0, 0, 0, 0) },
+        };
+        const c = {
+          info: { name: "Julie", date: new Date(1970, 8, 15, 0, 0, 0, 0) },
+        };
+        const collection = [b, a, c];
+
+        const result = [c, a, b];
+
+        expect(pipe.transform(collection, ["info.date", "info.name"])).toEqual(
+          result
+        );
+        expect(
+          pipe.transform(collection, ["info.date", "info.name"], true)
+        ).toEqual([b, a, c]);
+      });
     });
   });
 });
