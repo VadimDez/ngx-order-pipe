@@ -94,12 +94,12 @@ describe("OrderPipe", () => {
     const array = [
       { values: [10, 0] },
       { values: [1, 2] },
-      { values: [0, -1, 1] }
+      { values: [0, -1, 1] },
     ];
     const arraySorted = [
       { values: [0, -1, 1] },
       { values: [1, 2] },
-      { values: [10, 0] }
+      { values: [10, 0] },
     ];
 
     expect(pipe.transform(array, "values")).toEqual(arraySorted);
@@ -111,16 +111,16 @@ describe("OrderPipe", () => {
         c: [2, 1, 3],
         d: ["h", "ch"],
         e: [{}, { f: "g" }],
-        f: "i"
-      }
+        f: "i",
+      },
     };
     const sortedObject = {
       b: {
         c: [1, 2, 3],
         d: ["h", "ch"],
         e: [{}, { f: "g" }],
-        f: "i"
-      }
+        f: "i",
+      },
     };
 
     expect(pipe.transform(object, "b.c")).toEqual(sortedObject);
@@ -131,8 +131,8 @@ describe("OrderPipe", () => {
   it('should not throw error on ordering "undefined" deep element', () => {
     const object = {
       b: {
-        e: [{}, { f: "g" }]
-      }
+        e: [{}, { f: "g" }],
+      },
     };
 
     expect(pipe.transform(object, "b.e[2].f")).toEqual(object);
@@ -141,13 +141,13 @@ describe("OrderPipe", () => {
   it("should sort deep elements", () => {
     const object = {
       lists: {
-        users: [{ id: 3 }, { id: 2 }, { id: 1 }]
-      }
+        users: [{ id: 3 }, { id: 2 }, { id: 1 }],
+      },
     };
     const objectSorted = {
       lists: {
-        users: [{ id: 1 }, { id: 2 }, { id: 3 }]
-      }
+        users: [{ id: 1 }, { id: 2 }, { id: 3 }],
+      },
     };
 
     expect(pipe.transform(object, "lists.users.id")).toEqual(objectSorted);
@@ -158,14 +158,14 @@ describe("OrderPipe", () => {
       { customer: { name: "test" } },
       { customer: { name: "b" } },
       { customer: { name: "a" } },
-      { customer: { name: "c" } }
+      { customer: { name: "c" } },
     ];
 
     const res = [
       { customer: { name: "a" } },
       { customer: { name: "b" } },
       { customer: { name: "c" } },
-      { customer: { name: "test" } }
+      { customer: { name: "test" } },
     ];
 
     expect(pipe.transform(arr, "customer.name")).toEqual(res);
@@ -175,7 +175,7 @@ describe("OrderPipe", () => {
       { customer: { number: 5 } },
       { customer: { number: 0 } },
       { customer: { number: 15 } },
-      { customer: { number: 1 } }
+      { customer: { number: 1 } },
     ];
 
     const result = [
@@ -183,7 +183,7 @@ describe("OrderPipe", () => {
       { customer: { number: 1 } },
       { customer: { number: 5 } },
       { customer: { number: 15 } },
-      { customer: { number: 25 } }
+      { customer: { number: 25 } },
     ];
 
     expect(pipe.transform(array, "customer.number")).toEqual(result);
@@ -194,14 +194,14 @@ describe("OrderPipe", () => {
       { customer: { name: "test" } },
       { customer: { name: "B" } },
       { customer: { name: "a" } },
-      { customer: { name: "c" } }
+      { customer: { name: "c" } },
     ];
 
     const res = [
       { customer: { name: "a" } },
       { customer: { name: "B" } },
       { customer: { name: "c" } },
-      { customer: { name: "test" } }
+      { customer: { name: "test" } },
     ];
 
     expect(pipe.transform(arr, "customer.name", false, true)).toEqual(res);
@@ -248,7 +248,7 @@ describe("OrderPipe", () => {
       const arr = ["$10,0", "$2,0", "$100,0"];
       const res = ["$2,0", "$10,0", "$100,0"];
 
-      const parse = value => parseInt(value.replace(/[^0-9]/g, ""), 10);
+      const parse = (value) => parseInt(value.replace(/[^0-9]/g, ""), 10);
 
       expect(
         pipe.transform(arr, null, false, true, (a, b) => {
@@ -283,13 +283,13 @@ describe("OrderPipe", () => {
       const array = [
         { name: "qwe", age: 1 },
         { name: "asd", age: 3 },
-        { name: "asd", age: 2 }
+        { name: "asd", age: 2 },
       ];
 
       const result = [
         { name: "asd", age: 2 },
         { name: "asd", age: 3 },
-        { name: "qwe", age: 1 }
+        { name: "qwe", age: 1 },
       ];
 
       expect(pipe.transform(array, ["name", "age"])).toEqual(result);
@@ -301,7 +301,7 @@ describe("OrderPipe", () => {
         { group: 1, value: 1 },
         { group: 3, value: 1 },
         { group: 2, value: 2 },
-        { group: 2, value: 1 }
+        { group: 2, value: 1 },
       ];
 
       it("should sort by multiple fields and preserve priority", () => {
@@ -310,7 +310,7 @@ describe("OrderPipe", () => {
           { group: 1, value: 2 },
           { group: 2, value: 1 },
           { group: 2, value: 2 },
-          { group: 3, value: 1 }
+          { group: 3, value: 1 },
         ];
 
         expect(pipe.transform(array, ["group", "value"])).toEqual(result);
@@ -322,7 +322,7 @@ describe("OrderPipe", () => {
           { group: 2, value: 1 },
           { group: 3, value: 1 },
           { group: 1, value: 2 },
-          { group: 2, value: 2 }
+          { group: 2, value: 2 },
         ];
 
         expect(pipe.transform(array, ["value", "group"])).toEqual(result);
@@ -333,16 +333,22 @@ describe("OrderPipe", () => {
       const array = [
         { name: "q", age: 1 },
         { name: "a", age: 3 },
-        { name: "a", age: 2 }
+        { name: "a", age: 2 },
       ];
 
       expect(pipe.transform(array, [])).toEqual(array);
     });
 
     it("should not modify original array", () => {
-      const array = [{ key: "a", value: 3 }, { key: "a", value: 1 }];
+      const array = [
+        { key: "a", value: 3 },
+        { key: "a", value: 1 },
+      ];
 
-      const result = [{ key: "a", value: 1 }, { key: "a", value: 3 }];
+      const result = [
+        { key: "a", value: 1 },
+        { key: "a", value: 3 },
+      ];
 
       expect(pipe.transform(array, ["key", "value"])).toEqual(result);
       expect(array[0]).toEqual({ key: "a", value: 3 });
@@ -367,26 +373,26 @@ describe("OrderPipe", () => {
     });
   });
 
-  it("should keep same order", function() {
+  it("should keep same order", function () {
     const collection = [
       {
         name: "John",
         age: "25",
         score: 12,
-        percent: "5.2%"
+        percent: "5.2%",
       },
       {
         name: "Mark",
         age: "19",
         score: 12,
-        percent: "No Value"
+        percent: "No Value",
       },
       {
         name: "Peter",
         age: "21",
         score: 12,
-        percent: "1.8%"
-      }
+        percent: "1.8%",
+      },
     ];
 
     expect(pipe.transform(collection, "score")).toEqual(collection);
@@ -397,14 +403,14 @@ describe("OrderPipe", () => {
       { a: { b: 3 } },
       { a: { b: 1 } },
       { a: undefined },
-      { a: { b: 2 } }
+      { a: { b: 2 } },
     ];
 
     const result = [
       { a: { b: 1 } },
       { a: { b: 2 } },
       { a: { b: 3 } },
-      { a: undefined }
+      { a: undefined },
     ];
 
     expect(pipe.transform(collection, "a.b")).toEqual(result);
