@@ -34,7 +34,7 @@ export class OrderPipe implements PipeTransform {
    * @param b
    */
   static defaultCompare(a: any, b: any) {
-    if (a instanceof Date) {
+    if (a && a instanceof Date) {
         a = a.getTime();
         b = b.getTime();
     }
