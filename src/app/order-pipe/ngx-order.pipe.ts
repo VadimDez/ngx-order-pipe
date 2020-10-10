@@ -2,7 +2,7 @@ import { Pipe, PipeTransform } from "@angular/core";
 
 @Pipe({
   name: "orderBy",
-  pure: false
+  pure: false,
 })
 export class OrderPipe implements PipeTransform {
   /**
@@ -35,9 +35,12 @@ export class OrderPipe implements PipeTransform {
    */
   static defaultCompare(a: any, b: any) {
     if (a && a instanceof Date) {
-        a = a.getTime();
-        b = b.getTime();
+      a = a.getTime();
     }
+    if (b && b instanceof Date) {
+      b = b.getTime();
+    }
+
     if (a === b) {
       return 0;
     }
