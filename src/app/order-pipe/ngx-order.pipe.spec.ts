@@ -441,6 +441,20 @@ describe("OrderPipe", () => {
       );
     });
 
+    it("should sort dates also including null as date", () => {
+      const a = { date: new Date(1980, 11, 31, 0, 0, 0, 0) };
+      const b = { date: null };
+      const c = { date: new Date(1978, 10, 12, 0, 0, 0, 0) };
+
+      const collection = [a, b, c];
+      const result = [c, a, b];
+
+      expect(pipe.transform(collection, "date")).toEqual(result);
+      expect(pipe.transform(collection, "date", true)).toEqual(
+        result.reverse()
+      );
+    });
+
     describe("multisort with dates", () => {
       it("should sort dates equal dates", () => {
         const a = {
