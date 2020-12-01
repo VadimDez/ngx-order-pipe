@@ -1,10 +1,14 @@
 # Changelog
 
+### 2.1.1
+
+- [[#107](https://github.com/VadimDez/ngx-order-pipe/issues/107)] - Error ordering by null date property
+- [[#108](https://github.com/VadimDez/ngx-order-pipe/pull/108)] - Fix error ordering by null date property
+
 ### 2.1.0
 
 - [[#91](https://github.com/VadimDez/ngx-order-pipe/issues/91)] - Multiple orders with date, second item is reversed
-- [[#103](https://github.com/VadimDez/ngx-order-pipe/pull/103) - Fixed date comparison in default comparator
-
+- [[#103](https://github.com/VadimDez/ngx-order-pipe/pull/103)] - Fixed date comparison in default comparator
 
 ### 2.0.4
 
