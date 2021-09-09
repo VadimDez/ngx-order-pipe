@@ -120,7 +120,7 @@ export class OrderPipe implements PipeTransform {
     if (Array.isArray(expression)) {
       return this.multiExpressionTransform(
         value,
-        expression,
+        expression.slice(),
         reverse,
         isCaseInsensitive,
         comparator
