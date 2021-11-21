@@ -1,5 +1,9 @@
 # Changelog
 
+### 2.1.2
+
+- [[#131](https://github.com/VadimDez/ngx-order-pipe/pull/131)] - Fix expression array being reversed
+
 ### 2.1.1
 
 - [[#107](https://github.com/VadimDez/ngx-order-pipe/issues/107)] - Error ordering by null date property
