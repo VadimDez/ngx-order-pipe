@@ -1,10 +1,24 @@
-# Angular 5+ Order Pipe
+<h1 align="center">Angular 5+ Order Pipe</h1>
 
-![https://www.npmjs.com/package/ngx-order-pipe](https://img.shields.io/npm/dm/ngx-order-pipe.svg?style=flat) ![https://www.npmjs.com/package/ng2-order-pipe](https://img.shields.io/npm/dm/ng2-order-pipe.svg?style=flat) [![DeepScan Grade](https://deepscan.io/api/projects/1752/branches/7519/badge/grade.svg)](https://deepscan.io/dashboard/#view=project&pid=1752&bid=7519)
+<p align="center">
+  <a href="https://www.npmjs.com/package/ngx-order-pipe">
+    <img src="https://img.shields.io/npm/dm/ngx-order-pipe.svg?style=flat" alt="downloads">
+  </a>
+  
+  <a href="https://www.npmjs.com/package/ng2-order-pipe">
+    <img src="https://img.shields.io/npm/dm/ng2-order-pipe.svg?style=flat" alt="downloads">
+  </a>
+  
+  <a href="https://deepscan.io/dashboard/#view=project&pid=1752&bid=7519">
+    <img src="https://deepscan.io/api/projects/1752/branches/7519/badge/grade.svg" alt="downloads">
+  </a>
+</a>
 
 > Order your collection by a field
 
-<img src="https://cloud.githubusercontent.com/assets/3748453/22164327/08764608-df57-11e6-9c90-075aeca26fd6.gif" width="300">
+<p align="center">
+  <img src="https://cloud.githubusercontent.com/assets/3748453/22164327/08764608-df57-11e6-9c90-075aeca26fd6.gif" width="300">
+</p>
 
 ### Demo page
 [https://vadimdez.github.io/ngx-order-pipe/](https://vadimdez.github.io/ngx-order-pipe/)
