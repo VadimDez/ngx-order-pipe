@@ -10,7 +10,7 @@ export class OrderPipe implements PipeTransform {
    *
    * @param value
    */
-  static isString(value: any) {
+  static isString(value: any): boolean {
     return typeof value === "string" || value instanceof String;
   }
 
@@ -71,7 +71,7 @@ export class OrderPipe implements PipeTransform {
    * @param expression
    * @returns {any}
    */
-  static getValue(object: any, expression: string[]) {
+  static getValue(object: any, expression: string[]): any {
     for (let i = 0, n = expression.length; i < n; ++i) {
       if (!object) {
         return;
@@ -151,22 +151,22 @@ export class OrderPipe implements PipeTransform {
   }
 
   /**
-   * Sort array
+   * Sort array, returns sorted array
    *
-   * @param value
+   * @param array
    * @param expression
    * @param reverse
    * @param isCaseInsensitive
    * @param comparator
-   * @returns {any[]}
+   * @returns {Type[]}
    */
-  private sortArray(
-    value: any[],
+  private sortArray<Type>(
+    array: Type[],
     expression?: any,
     reverse?: boolean,
     isCaseInsensitive?: boolean,
     comparator?: Function
-  ): any[] {
+  ): Type[] {
     const isDeepLink = expression && expression.indexOf(".") !== -1;
 
     if (isDeepLink) {
@@ -183,7 +183,7 @@ export class OrderPipe implements PipeTransform {
         : OrderPipe.defaultCompare;
     }
 
-    const array: any[] = value.sort((a: any, b: any): number => {
+    const sortedArray: any[] = array.sort((a: any, b: any): number => {
       if (!expression) {
         return compareFn(a, b);
       }
@@ -202,10 +202,10 @@ export class OrderPipe implements PipeTransform {
     });
 
     if (reverse) {
-      return array.reverse();
+      return sortedArray.reverse();
     }
 
-    return array;
+    return sortedArray;
   }
 
   /**
