@@ -1,4 +1,4 @@
-<h1 align="center">Angular 5+ Order Pipe</h1>
+<h1 align="center">Angular 15+ Order Pipe</h1>
 
 <p align="center">
   <a href="https://www.npmjs.com/package/ngx-order-pipe">
@@ -32,6 +32,7 @@ or see code example
 ```
 npm install ngx-order-pipe --save
 ```
+*For Angular higher than 5 and lower than 15 use version `2.2.0`*
 *For Angular lower than 5 use version `1.1.3`*
 
 ## Setup
@@ -59,28 +60,11 @@ In case you're using `systemjs` - see configuration [here](https://github.com/Va
 
 <br/>
 
-Import `OrderModule` to your module
-
-```typescript
-import { NgModule } from '@angular/core';
-import { BrowserModule  } from '@angular/platform-browser';
-import { AppComponent } from './app';
-
-import { OrderModule } from 'ngx-order-pipe';
-
-@NgModule({
-  imports: [BrowserModule, OrderModule],
-  declarations: [AppComponent],
-  bootstrap: [AppComponent]
-})
-export class AppModule {}
-
-```
-
-And use pipe in your component
+Import `OrderPipe` to your components to use it
 
 ```typescript
 import { Component } from '@angular/core';
+import { OrderPipe } from 'ngx-order-pipe';
 
 @Component({
   selector: 'example',
@@ -90,7 +74,8 @@ import { Component } from '@angular/core';
         {{ item.name }}
       </li>
     </ul> 
-  `
+  `,
+  imports: [OrderPipe],
 })
 
 export class AppComponent {
@@ -114,11 +99,22 @@ Import `OrderPipe` to your component:
 ```typescript
 import { OrderPipe } from 'ngx-order-pipe';
 ```
-Add `OrderPipe` to the constructor of your component and you're ready to use it:
 
+Add `OrderPipe` to the declarations of your component, inject it to your  constructor and you're ready to use it:
 ```typescript
-constructor(private orderPipe: OrderPipe) {
-  console.log(this.orderPipe.transform(this.array, this.order)); // both this.array and this.order are from above example AppComponent
+import { Component } from '@angular/core';
+import { OrderPipe } from 'ngx-order-pipe';
+
+@Component({
+  selector: 'example',
+  template: `<div>Example</div>`,
+  declarations: [OrderPipe],
+})
+
+export class AppComponent {
+  constructor(private orderPipe: OrderPipe) {
+    console.log(this.orderPipe.transform(this.array, this.order)); // both this.array and this.order are from above example AppComponent
+  }
 }
 ```
 

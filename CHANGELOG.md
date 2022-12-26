@@ -5,6 +5,30 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+### 3.0.0 - 2022-12-26
+
+### Changed
+
+- [[#151](https://github.com/VadimDez/ngx-order-pipe/pull/151)] - Make the pipe standalone
+
+⚠️ Breaking changes: 
+* Angular 15+ is now required.
+* `OrderModule` has been removed. Import `OrderPipe` in your component. 
+See [standalone components](https://angular.io/guide/standalone-components) in the Angular documentation.
+
+Example:
+```typescript
+@Component({
+  selector: "app-my-component",
+  templateUrl: "./my-component.component.html",
+  styleUrls: ["./my-component.component.scss"],
+  imports: [OrderPipe],
+})
+export class MyComponent {
+    /* ... */
+}
+```
+
 ### 2.2.0 - 2021-12-11
 
 ### Changed

@@ -1,11 +1,15 @@
 import { Component } from "@angular/core";
 
 import { OrderPipe } from "./order-pipe/ngx-order.pipe";
+import { CommonModule} from '@angular/common';
 
 @Component({
+  standalone: true,
   selector: "app-root",
   templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.scss"]
+  styleUrls: ["./app.component.scss"],
+  imports: [CommonModule, OrderPipe],
+  providers: [OrderPipe]
 })
 export class AppComponent {
   order: string = "info.name";

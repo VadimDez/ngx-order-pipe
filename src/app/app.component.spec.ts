@@ -1,12 +1,10 @@
-import { TestBed, async } from "@angular/core/testing";
+import { TestBed, waitForAsync } from "@angular/core/testing";
 import { AppComponent } from "./app.component";
-import { OrderModule } from "./order-pipe/ngx-order.module";
 
 describe("AppComponent", () => {
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [AppComponent],
-      imports: [OrderModule]
+      imports: [AppComponent]
     }).compileComponents();
   }));
 
