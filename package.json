@@ -12,7 +12,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "packagr": "ng-packagr -p ng-package.json",
-    "docs": "ng build --configuration production --output-path docs --base-href ngx-order-pipe && cp ./docs/index.html ./docs/404.html"
+    "docs": "ng build --configuration production --output-path docs --base-href ngx-order-pipe && cp -R ./docs/browser/* ./docs/ && rm -rf ./docs/browser && cp ./docs/index.html ./docs/404.html"
   },
   "repository": {
     "type": "git",
