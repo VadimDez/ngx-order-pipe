@@ -226,7 +226,7 @@ export class OrderPipe implements PipeTransform {
     comparator?: Function
   ): any {
     const parsedExpression = OrderPipe.parseExpression(expression);
-    let lastPredicate = parsedExpression.pop();
+    let lastPredicate: any = parsedExpression.pop();
     let oldValue = OrderPipe.getValue(value, parsedExpression);
 
     if (!Array.isArray(oldValue)) {
@@ -260,7 +260,7 @@ export class OrderPipe implements PipeTransform {
   private multiExpressionTransform(
     value: any,
     expressions: any[],
-    reverse: boolean,
+    reverse?: boolean,
     isCaseInsensitive: boolean = false,
     comparator?: Function
   ): any {

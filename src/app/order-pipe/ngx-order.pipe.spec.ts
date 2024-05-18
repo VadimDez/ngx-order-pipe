@@ -238,7 +238,7 @@ describe("OrderPipe", () => {
       const res = [1, 2, 3];
 
       expect(
-        pipe.transform(arr, null, false, true, (a, b) => {
+        pipe.transform(arr, null, false, true, (a: number, b: number) => {
           return a > b ? 1 : -1;
         })
       ).toEqual(res);
@@ -248,10 +248,10 @@ describe("OrderPipe", () => {
       const arr = ["$10,0", "$2,0", "$100,0"];
       const res = ["$2,0", "$10,0", "$100,0"];
 
-      const parse = (value) => parseInt(value.replace(/[^0-9]/g, ""), 10);
+      const parse = (value: string): number => parseInt(value.replace(/[^0-9]/g, ""), 10);
 
       expect(
-        pipe.transform(arr, null, false, true, (a, b) => {
+        pipe.transform(arr, null, false, true, (a: string, b: string) => {
           const newA = parse(a);
           const newB = parse(b);
           return newA > newB ? 1 : -1;
@@ -264,7 +264,8 @@ describe("OrderPipe", () => {
       const res = [1, 2, 3];
 
       it("should still work if comparator is null", () => {
-        expect(pipe.transform(arr, null, false, true, null)).toEqual(res);
+        const nullComparator: any = null;
+        expect(pipe.transform(arr, null, false, true, nullComparator)).toEqual(res);
       });
 
       it("should still work if comparator is undefined", () => {
@@ -273,7 +274,7 @@ describe("OrderPipe", () => {
       });
 
       it("should still work if comparator is not returning anything", () => {
-        expect(pipe.transform(arr, null, false, true, () => {})).toEqual(arr);
+        expect(pipe.transform(arr, null, false, true, () => { })).toEqual(arr);
       });
     });
   });
