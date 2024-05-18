@@ -63,11 +63,5 @@
     "tslib": "^2.3.0",
     "typescript": "~5.4.2",
     "zone.js": "~0.14.3"
-  },
-  "$schema": "./node_modules/ng-packagr/package.schema.json",
-  "ngPackage": {
-    "lib": {
-      "entryFile": "public_api.ts"
-    }
   }
 }
