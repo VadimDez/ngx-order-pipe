@@ -1,15 +1,20 @@
 import { Component } from "@angular/core";
 
 import { OrderPipe } from "./order-pipe/ngx-order.pipe";
+import { OrderModule } from "./order-pipe/ngx-order.module";
+import { JsonPipe, NgFor } from "@angular/common";
 
 @Component({
   selector: "app-root",
+  standalone: true,
+  imports: [JsonPipe, NgFor, OrderModule],
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.scss"]
 })
 export class AppComponent {
   order: string = "info.name";
   reverse: boolean = false;
+  caseInsensitive: boolean = true;
   collection: any[] = [
     {
       id: 1,
@@ -17,7 +22,7 @@ export class AppComponent {
         name: "john",
         number: "555-1212",
         age: 10,
-        isAdult: function() {
+        isAdult: function () {
           return this.age >= 21;
         }
       }
@@ -28,7 +33,7 @@ export class AppComponent {
         name: "Mary",
         number: "555-9876",
         age: 19,
-        isAdult: function() {
+        isAdult: function () {
           return this.age >= 21;
         }
       }
@@ -39,7 +44,7 @@ export class AppComponent {
         name: "Mike",
         number: "555-4321",
         age: 21,
-        isAdult: function() {
+        isAdult: function () {
           return this.age >= 21;
         }
       }
@@ -50,7 +55,7 @@ export class AppComponent {
         name: "Julie",
         number: "555-8765",
         age: 29,
-        isAdult: function() {
+        isAdult: function () {
           return this.age >= 21;
         }
       }
@@ -61,7 +66,7 @@ export class AppComponent {
         name: "Adam",
         number: "555-5678",
         age: 35,
-        isAdult: function() {
+        isAdult: function () {
           return this.age >= 21;
         }
       }

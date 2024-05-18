@@ -54,7 +54,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let row of collection | orderBy: order:reverse:'case-insensitive'">
+                  <tr *ngFor="let row of collection | orderBy: order:reverse:caseInsensitive">
                     <td>{{ row.id }}</td>
                     <td class="mdl-data-table__cell--non-numeric">{{ row.info.name }}</td>
                     <td>{{ row.info.number }}</td>
